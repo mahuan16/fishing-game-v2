@@ -13,15 +13,12 @@ var gauge_instance
 
 func _ready() -> void:
 	fish = FISH_SCENE.instantiate()
-	player_instance = PLAYER.instantiate()
-	gauge_instance = FISH_GAUGE.instantiate()
 
 var scoreNum : int = 0
 @onready var score: Label = $score
 
+# damage fish function
 func add_point() -> void:
-	scoreNum += 1
-	score.text = "Score: " + str(scoreNum)
 	fish.hit_points -= 1
 	if (fish.hit_points <= 0):
 		score.text = "You caught " + str(fish.display_name)
@@ -37,7 +34,8 @@ func start_fishing() -> void:
 	
 
 func create_fish_elements() -> void:
-	
+	player_instance = PLAYER.instantiate()
+	gauge_instance = FISH_GAUGE.instantiate()
 	
 	# player settings + position
 	player_instance.upperLimit = 540
