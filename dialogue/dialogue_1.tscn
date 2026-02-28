@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://f1a8r5esi3r1"]
+
+[ext_resource type="Script" uid="uid://br16e6vo6q5bc" path="res://dialogue/dialogue_1.gd" id="1_crwoj"]
+
+[node name="Dialogue1" type="Node2D" unique_id=2105650749]
+script = ExtResource("1_crwoj")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1563173714]
