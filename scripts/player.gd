@@ -8,8 +8,6 @@ var direction : int = 1 # start going down
 
 @onready var fish_shape: CollisionPolygon2D = $fishShape
 
-
-
 func _physics_process(delta: float) -> void:
 	
 	if direction == 1:

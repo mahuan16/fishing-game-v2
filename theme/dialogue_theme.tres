@@ -1,0 +1,13 @@
+[gd_resource type="Theme" format=3 uid="uid://b534wrabc31vt"]
+
+[sub_resource type="Gradient" id="Gradient_st08t"]
+colors = PackedColorArray(0.3859748, 0.5704754, 0.77678263, 1, 0.91551745, 0.7750177, 0.852371, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_tf3fy"]
+gradient = SubResource("Gradient_st08t")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8cyls"]
+texture = SubResource("GradientTexture1D_tf3fy")
+
+[resource]
+Panel/styles/panel = SubResource("StyleBoxTexture_8cyls")

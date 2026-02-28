@@ -16,4 +16,10 @@ func _ready() -> void:
 	description = data.fishDesc
 	price = data.fishPrice
 	
+func set_data() -> void:
+	#sprite_2d.texture = data.sprite
+	hit_points = data.health
+	display_name = data.fishName
+	description = data.fishDesc
+	price = data.fishPrice
 	

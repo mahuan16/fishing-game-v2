@@ -8,6 +8,8 @@ const PLAYER = preload("res://scenes/player.tscn")
 
 
 var fish : Node
+var player_instance
+var gauge_instance
 
 func _ready() -> void:
 	fish = FISH_SCENE.instantiate()
@@ -15,24 +17,25 @@ func _ready() -> void:
 var scoreNum : int = 0
 @onready var score: Label = $score
 
+# damage fish function
 func add_point() -> void:
-	scoreNum += 1
-	score.text = "Score: " + str(scoreNum)
 	fish.hit_points -= 1
 	if (fish.hit_points <= 0):
 		score.text = "You caught " + str(fish.display_name)
+		end_fishing()
 
 func start_fishing() -> void:
 	var data : FishData = fish_database.fish_array.pick_random()
 	fish.data = data
+	fish.set_data()
 	print(str(fish.hit_points))
 	print(fish.display_name)
 	create_fish_elements()
 	
 
 func create_fish_elements() -> void:
-	var player_instance = PLAYER.instantiate()
-	var gauge_instance = FISH_GAUGE.instantiate()
+	player_instance = PLAYER.instantiate()
+	gauge_instance = FISH_GAUGE.instantiate()
 	
 	# player settings + position
 	player_instance.upperLimit = 540
@@ -45,8 +48,15 @@ func create_fish_elements() -> void:
 	gauge_instance.max_length = 50
 	gauge_instance.global_position = Vector2(1152*.77,648*.5)
 	
-	add_child(player_instance)
+	
 	add_child(gauge_instance)
+	add_child(player_instance)
 	
 	print("displays created!")
+	
+func end_fishing() -> void:
+	player_instance.queue_free()
+	gauge_instance.queue_free()
+	
+	
 	
