@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://bviw12e1ksyeg"]
+
+[ext_resource type="PackedScene" uid="uid://ew1k35eoeyam" path="res://scenes/game_manager.tscn" id="1_843q2"]
+[ext_resource type="Texture2D" uid="uid://bgpxqnap6schx" path="res://assets/ocean-bg.jpg" id="1_r4wdr"]
+[ext_resource type="Texture2D" uid="uid://4f6388wcdw22" path="res://assets/fisherman.png" id="2_bhu28"]
+[ext_resource type="Script" uid="uid://dcoajfqq45tcl" path="res://scripts/button.gd" id="2_t18mc"]
+[ext_resource type="Texture2D" uid="uid://difeqn4a8esmu" path="res://assets/boat1.PNG" id="3_4p75b"]
+
+[node name="Level_One" type="Node2D" unique_id=1741994209]
+
+[node name="background" type="Node" parent="." unique_id=1301565424]
+
+[node name="backgroundImg" type="Sprite2D" parent="background" unique_id=1795248204]
+position = Vector2(589.99994, 332.99997)
+scale = Vector2(0.48472223, 0.48472223)
+texture = ExtResource("1_r4wdr")
+
+[node name="fisherman" type="Sprite2D" parent="background" unique_id=584456853]
+position = Vector2(568.75, 355.74994)
+scale = Vector2(0.1659173, 0.16591726)
+texture = ExtResource("2_bhu28")
+
+[node name="poorBoat" type="Sprite2D" parent="background" unique_id=1858627688]
+position = Vector2(408.74997, 457.74997)
+scale = Vector2(0.26049802, 0.26049802)
+texture = ExtResource("3_4p75b")
+
+[node name="gameManager" parent="." unique_id=511014651 instance=ExtResource("1_843q2")]
+unique_name_in_owner = true
+
+[node name="Button" type="Button" parent="." unique_id=1669046095]
+z_index = 5
+offset_left = 48.0
+offset_top = 95.0
+offset_right = 198.0
+offset_bottom = 141.0
+text = "Start"
+script = ExtResource("2_t18mc")
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

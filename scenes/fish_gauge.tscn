@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://c3m1w6mbpikwd"]
+
+[ext_resource type="Script" uid="uid://bh4j5strmnbqp" path="res://scripts/fish_gauge.gd" id="1_lx7vr"]
+[ext_resource type="Texture2D" uid="uid://dhmk1ft6btit3" path="res://assets/fish-gauge.jpg" id="2_3otdh"]
+[ext_resource type="PackedScene" uid="uid://v6ydsx7ctl08" path="res://scenes/target_bar.tscn" id="3_pixjg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0x1bj"]
+size = Vector2(28, 451)
+
+[node name="fishGauge" type="Area2D" unique_id=1492960916]
+script = ExtResource("1_lx7vr")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1906892228]
+scale = Vector2(0.028320316, 0.4404297)
+texture = ExtResource("2_3otdh")
+
+[node name="targetBar" parent="." unique_id=371739854 instance=ExtResource("3_pixjg")]
+
+[node name="gaugeShape" type="CollisionShape2D" parent="." unique_id=598625048]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_0x1bj")
+
+[connection signal="body_entered" from="targetBar" to="." method="_on_target_bar_body_entered"]
+[connection signal="body_exited" from="targetBar" to="." method="_on_target_bar_body_exited"]

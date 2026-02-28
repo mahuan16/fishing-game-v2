@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="FishData" format=3 uid="uid://tei1rijwl82c"]
+
+[ext_resource type="Script" uid="uid://dphj5gxr8tnga" path="res://scripts/fish_data.gd" id="1_r81u0"]
+
+[resource]
+script = ExtResource("1_r81u0")
+health = 5
+fishName = "Tuna"
+fishDesc = "im tuna"
+fishPrice = 5
+metadata/_custom_type_script = "uid://dphj5gxr8tnga"

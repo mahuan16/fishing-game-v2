@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://deexukdqmc2j5"]
+
+[ext_resource type="Script" uid="uid://ojs8tp5uwsbt" path="res://scripts/player.gd" id="1_qhqgy"]
+[ext_resource type="Texture2D" uid="uid://bftmw2iv0qlxi" path="res://assets/player-fish.png" id="2_qhqgy"]
+
+[node name="player" type="CharacterBody2D" unique_id=1509693089]
+script = ExtResource("1_qhqgy")
+
+[node name="fishPointer" type="Sprite2D" parent="." unique_id=555663173]
+position = Vector2(1.9073486e-06, 1.1920929e-07)
+scale = Vector2(0.10273695, 0.10273695)
+texture = ExtResource("2_qhqgy")
+
+[node name="fishShape" type="CollisionPolygon2D" parent="." unique_id=1963995539]
+position = Vector2(-44, -13)
+polygon = PackedVector2Array(19, 13, 26, 7, 34, 3, 34, 22, 26, 19)
