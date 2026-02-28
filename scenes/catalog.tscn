@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cyiete4w257vl"]
+
+[ext_resource type="Texture2D" uid="uid://bglx8mmhtral3" path="res://assets/open book placeholder.png" id="1_iyahu"]
+
+[node name="Catalog" type="Node2D" unique_id=193354074]
+
+[node name="Book" type="Sprite2D" parent="." unique_id=792995224]
+texture = ExtResource("1_iyahu")
