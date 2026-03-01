@@ -16,6 +16,7 @@ func _ready() -> void:
 	price = 0
 	#print(fish_sprite)
 	#print(fish_sprite.texture)
+	fish_sprite.scale = Vector2(0.1, 0.1) # Halves size
 	
 	
 func set_data() -> void:

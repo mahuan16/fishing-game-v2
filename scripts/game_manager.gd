@@ -18,6 +18,8 @@ var gauge_instance
 
 func _ready() -> void:
 	fish = FISH_SCENE.instantiate()
+	add_child(fish)
+	fish.visible = false 
 	panel.visible = false # hide the panel to show the catches at the start
 
 var scoreNum : int = 0
@@ -36,6 +38,7 @@ func start_fishing() -> void:
 	var data : FishData = fish_database.fish_array.pick_random()
 	fish.data = data
 	fish.set_data()
+	fish.visible = false 
 	print(str(fish.hit_points))
 	print(fish.display_name)
 	create_fish_elements()
@@ -69,10 +72,14 @@ func end_fishing() -> void:
 	
 # 	score.text = "You caught " + str(fish.display_name)
 	
+	fish.visible = true # show the fish now 
+	fish.global_position = Vector2(130, 50)
+	
 	you_caught_x.text = "Caught " + str(fish.display_name) + "!"
 	panel.visible = true 
 	
 	await get_tree().create_timer(3.0).timeout # disappear after 3 secs
 	panel.visible = false # disappear the panel after 3 secs
+	fish.visible = false 
 	
 	fishing_finished.emit() # adds in a signal for the level_one script to know when fishing has finished 
