@@ -29,6 +29,7 @@ var totalHealth : float = 1.0
 
 func _ready() -> void:
 	fish = FISH_SCENE.instantiate()
+	
 	add_child(fish)
 	fish.visible = false  
 	panel.visible = false # hide the panel to show the catches at the start

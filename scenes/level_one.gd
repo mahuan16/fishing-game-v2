@@ -49,7 +49,7 @@ func _on_midboat_purchased() -> void:
 	await transition_audio.finished
 	
 	# Change scene
-	get_tree().change_scene_to_file("res://level_two.tscn")
+	get_tree().change_scene_to_file("res://scenes/level_two.tscn")
 	
 
 func change_bg() -> void:
@@ -125,6 +125,7 @@ func run_cycle():
 		if child is BaseGameDialogueBalloon:
 			child.queue_free()
 	boss_fight()
+	print(get_tree().root.get_children())
 
 @onready var game_manager: Node = %gameManager
 

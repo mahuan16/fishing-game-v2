@@ -18,6 +18,8 @@ func _on_catalog_button_pressed() -> void:
 
 func _on_shop_button_pressed() -> void:
 	shop.visible = true
+	if shop.visible == true: 
+		print("shop is visible")
 	#shop.disable = false
 	get_tree().paused = true
 
