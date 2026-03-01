@@ -100,6 +100,10 @@ func run_cycle():
 		await game_manager.start_fishing() 
 		
 	print("3 cycles completed")
+	#balloon.start(load("res://dialogue/dialogue_boss1.dialogue"), "start")
+	var bossdialogue_1 = preload("res://dialogue/dialogue_boss1.dialogue")
+	DialogueManager.show_dialogue_balloon(bossdialogue_1, "start")
+	await DialogueManager.dialogue_ended 
 	boss_fight()
 
 @onready var game_manager: Node = %gameManager
