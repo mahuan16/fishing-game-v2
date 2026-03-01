@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://b3pfwyhk7wwmo"]
 
-[ext_resource type="Script" uid="uid://j01a4urqf556" path="res://scenes/main_menu.gd" id="1_ekxnf"]
-[ext_resource type="Texture2D" uid="uid://dm4ovivndfjlp" path="res://icon.svg" id="1_l6cm7"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ekxnf"]
-atlas = ExtResource("1_l6cm7")
+[ext_resource type="Script" uid="uid://j01a4urqf556" path="res://scripts/main_menu.gd" id="1_ekxnf"]
+[ext_resource type="Texture2D" uid="uid://dw1rwnpiq6hgx" path="res://assets/backgrounds/level-one-bg.jpg" id="2_wu84c"]
+[ext_resource type="Texture2D" uid="uid://dr4d5ux7opi1g" path="res://assets/instructions.png" id="3_8ln24"]
+[ext_resource type="Texture2D" uid="uid://bdbvp006nttn" path="res://assets/exitbutton.png" id="4_rtw2f"]
+[ext_resource type="Texture2D" uid="uid://oo75e2vu362f" path="res://assets/Title2.png" id="5_8ln24"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bqqt6"]
 
-[node name="MainMenu" type="Control"]
+[node name="MainMenu" type="Control" unique_id=846419576]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -17,36 +17,71 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ekxnf")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="backgroundTexture" type="TextureRect" parent="." unique_id=58555902]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("AtlasTexture_ekxnf")
+texture = ExtResource("2_wu84c")
+expand_mode = 1
 
-[node name="Start" type="Button" parent="."]
+[node name="Start" type="Button" parent="." unique_id=17114012]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 334.0
-offset_top = -258.0
-offset_right = 439.0
-offset_bottom = -144.0
+offset_left = 423.0
+offset_top = -238.0
+offset_right = 528.0
+offset_bottom = -124.0
 grow_vertical = 0
 text = "START"
 icon = SubResource("AtlasTexture_bqqt6")
 
-[node name="Help" type="Button" parent="."]
+[node name="Help" type="Button" parent="." unique_id=1711167343]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 568.0
-offset_top = -253.0
-offset_right = 673.0
-offset_bottom = -139.0
+offset_left = 641.0
+offset_top = -238.0
+offset_right = 746.0
+offset_bottom = -124.0
 grow_vertical = 0
 text = "HELP"
+
+[node name="Instructions" type="TextureRect" parent="." unique_id=1487037323]
+visible = false
+layout_mode = 0
+offset_left = 34.0
+offset_top = 7.0
+offset_right = 1186.0
+offset_bottom = 655.0
+scale = Vector2(0.95, 0.95)
+texture = ExtResource("3_8ln24")
+
+[node name="ExitHelp" type="Button" parent="." unique_id=2137252885]
+visible = false
+layout_mode = 0
+offset_left = 134.0
+offset_top = 40.0
+offset_right = 227.0
+offset_bottom = 135.0
+icon = ExtResource("4_rtw2f")
+flat = true
+expand_icon = true
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1660883673]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 2.0
+offset_right = 1072.1272
+offset_bottom = 192.0
+texture = ExtResource("5_8ln24")
+expand_mode = 1
+
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Help" to="." method="_on_help_pressed"]
+[connection signal="pressed" from="ExitHelp" to="." method="_on_exit_help_pressed"]

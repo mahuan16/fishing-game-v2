@@ -9,7 +9,6 @@ var fish : Node2D
 @onready var fish_name: Label = $fishName
 @onready var fish_description: Label = $fishDescription
 
-var newFish : bool = true
 
 
 # Called when the node enters the scene tree for the first time.
@@ -28,6 +27,7 @@ func update_children() -> void:
 	fish_img.texture = fish.fish_sprite.texture
 	fish_name.text = fish.display_name
 	fish_description.text = fish.description
+
 
 	
 	

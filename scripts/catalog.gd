@@ -29,10 +29,10 @@ func _ready() -> void:
 	hide_fish()
 	
 	display_found()
-	
+	#print("new cat")
 
 func create_fish() -> void:
-	
+	#fishes = fish_database.fish_array
 	var index : int = 0
 	for fish in fishes:
 		currentFishEntry = FISH_ENTRY.instantiate()
@@ -40,7 +40,10 @@ func create_fish() -> void:
 		add_child(currentFishEntry)
 		currentFishEntry.newdata = fish
 		currentFishEntry.set_data()
+		
 		index += 1
+	
+	
 		
 	
 func draw_fish(pageNum : int) -> void:
@@ -62,9 +65,11 @@ func draw_fish(pageNum : int) -> void:
 		var fishChild = get_node(index)
 		fishChild.scale = Vector2(0.1,0.1)
 		fishChild.position = Vector2(x,y)
-		var fishSprite = fishChild.fish_img
-		if fishChild.newFish:
+		#var fishSprite = fishChild.fish_img
+		#print(fishes[i].found)
+		if not fishes[i].found:
 			fishChild.modulate = Color(0,0,0,1)
+			fishChild.fish_name.text = "???"
 			fishChild.fish_description.text = "Keep fishing to find me!"
 		else:
 			fishFound += 1
@@ -143,3 +148,8 @@ func hide_fish() -> void:
 func _on_back_pg_pressed() -> void:
 	pageNum -= 1
 	check_buttons()
+	
+
+func _on_exit_out_pressed() -> void:
+	get_tree().paused = false
+	queue_free()
