@@ -25,13 +25,16 @@ scale = Vector2(1.2096603, 0.86278945)
 texture = ExtResource("2_k4jhu")
 
 [node name="YouCaughtX" type="Label" parent="CanvasLayer/Panel" unique_id=526736404]
+texture_filter = 3
 layout_mode = 0
 offset_left = 18.0
 offset_top = -85.99999
 offset_right = 134.591
 offset_bottom = -42.136322
 scale = Vector2(4.3999963, 4.3999963)
+theme_override_font_sizes/font_size = 16
 text = "You caught"
+autowrap_mode = 2
 
 [node name="fishDatabase" parent="." unique_id=546373192 instance=ExtResource("2_glms7")]
 unique_name_in_owner = true

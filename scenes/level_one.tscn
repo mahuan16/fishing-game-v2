@@ -47,12 +47,6 @@ position = Vector2(589.99994, 332.99997)
 scale = Vector2(0.48472223, 0.48472223)
 texture = ExtResource("2_4p75b")
 
-[node name="Label" type="Label" parent="background/backgroundImg" unique_id=700720336]
-offset_left = 43.323902
-offset_top = 121.719284
-offset_right = 83.3239
-offset_bottom = 144.71928
-
 [node name="fisherman" type="Sprite2D" parent="background" unique_id=584456853]
 position = Vector2(568.75, 355.74994)
 scale = Vector2(0.1659173, 0.16591726)
