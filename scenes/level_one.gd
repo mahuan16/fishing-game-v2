@@ -13,9 +13,16 @@ var dialogues_list = [ # because we need more dialogues than just that one at th
 	"res://dialogue/dialogue3.dialogue"
 ]
 
+var background1s: Array[Texture2D] = [
+	preload("res://bg_anims/level-one-bg.png"),
+	preload("res://bg_anims/level-one-bg2.png"),
+	preload("res://bg_anims/level-one-bg3.png"),
+	preload("res://bg_anims/level-one-bg4.png") 
+]
 
 func _ready(): 
 	$FishingStartButton.visible = false 
+	change_bg()
 	$sequenceofevents/TextureRect/PressSpaceToStart.visible = true 
 	#if $FishingStartButton.is_action_pressed("left_click"):
 		#print("something")
@@ -23,8 +30,17 @@ func _ready():
 	print("Dialogue 1 connected")
 	
 
-#func _ready(): 
-	
+#func change_backgrounds(): 
+	#for i in range(): 
+		#$background/backgroundImg.texture = background1s[i]
+
+func change_bg() -> void:
+	var index := 0
+	while true:
+		$background/backgroundImg.texture = background1s[index]
+		index = (index + 1) % background1s.size()
+		await get_tree().create_timer(1.5).timeout # the speed at which the water changes 
+
 var resource = preload("res://dialogue/balloon.tscn")
 #
 #DialogueManager.show_dialogue_balloon(resource, "start")
@@ -44,10 +60,15 @@ func _unhandled_input(event: InputEvent) -> void:
 			print("Connecting signal")
 			
 			
-			
+#@onready var bubbling_sfx: AudioStreamPlayer = $BubblingSFX
+
 			#$FishingStartButton.visible = true 
 			
 			#_on_dialogue_finished().emit()
+			
+@onready var bobber_in: AudioStreamPlayer = $BobberIn
+@onready var reel_in: AudioStreamPlayer = $ReelIn
+
 var cycles = 3 
 func run_cycle(): 
 	for i in range(cycles): 
@@ -68,15 +89,23 @@ func run_cycle():
 		
 		# second step is to play the bubble animation 
 		var bubbles_appear = bubbles.instantiate()
+		bobber_in.play() 
+		
 		get_tree().root.add_child(bubbles_appear)
 		bubbles_appear.global_position = Vector2(50, 130)
 		
+		
 		var anim_player = bubbles_appear.get_node("AnimationPlayer")
+		
 		await anim_player.animation_finished
+		
 		
 		# third step is to play the fishing scripts 
 		bubbles_appear.queue_free() # get rid of bubble instances before the next round 
+		reel_in.play()
 		await game_manager.start_fishing() 
+		
+		
 		
 	print("3 cycles completed")
 

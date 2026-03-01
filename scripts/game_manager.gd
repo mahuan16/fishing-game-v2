@@ -65,6 +65,7 @@ func create_fish_elements() -> void:
 	add_child(player_instance)
 	
 func end_fishing() -> void:
+	# reel_in.play()
 	player_instance.queue_free()
 	gauge_instance.queue_free()
 	

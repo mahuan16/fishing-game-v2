@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bodc35vc74knc" path="res://scenes/bubble_anim.gd" id="1_g1fdr"]
 [ext_resource type="Texture2D" uid="uid://ci5ukb0rf5ruf" path="res://assets/spritesheets/bubbles_spritesheet2.png" id="2_g1fdr"]
+[ext_resource type="AudioStream" uid="uid://yysgb8dgbonf" path="res://sfx/bubbling.wav" id="3_v6qef"]
 
 [sub_resource type="Animation" id="Animation_v6qef"]
 length = 0.001
@@ -57,3 +58,7 @@ libraries/ = SubResource("AnimationLibrary_2op44")
 wait_time = 7.0
 one_shot = true
 autostart = true
+
+[node name="BubblesSFX" type="AudioStreamPlayer" parent="." unique_id=1853699586]
+stream = ExtResource("3_v6qef")
+bus = &"Bubbling"

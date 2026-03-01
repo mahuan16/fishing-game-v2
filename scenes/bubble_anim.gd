@@ -2,7 +2,8 @@ extends Node2D
 
 @onready var timer: Timer = $Timer
 
-var possible_times = [5, 6, 7, 8]
+var possible_times = [3, 4, 5, 6]
+@onready var bubbles_sfx: AudioStreamPlayer = $BubblesSFX
 
 func _ready(): 
 	timer.wait_time = possible_times.pick_random() # pick a random time for the timer
@@ -12,6 +13,7 @@ func _ready():
 func _on_timer_timeout() -> void:
 	$AnimationPlayer.play("bubbling")
 	print("Timer end.")
+	bubbles_sfx.play()
 	await $AnimationPlayer.animation_finished
 	timer.wait_time = possible_times.pick_random()
 	timer.start()
