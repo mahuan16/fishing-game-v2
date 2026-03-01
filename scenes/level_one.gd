@@ -17,10 +17,17 @@ var dialogues_list = [ # because we need more dialogues than just that one at th
 	"res://dialogue/dialogue3.dialogue"
 ]
 
+var background1s: Array[Texture2D] = [
+	preload("res://bg_anims/level-one-bg.png"),
+	preload("res://bg_anims/level-one-bg2.png"),
+	preload("res://bg_anims/level-one-bg3.png"),
+	preload("res://bg_anims/level-one-bg4.png") 
+]
 
 func _ready(): 
 	$FishingStartButton.visible = false 
 	boss_fish.visible = false
+	change_bg()
 	$sequenceofevents/TextureRect/PressSpaceToStart.visible = true 
 	#if $FishingStartButton.is_action_pressed("left_click"):
 		#print("something")
@@ -28,7 +35,12 @@ func _ready():
 	print("Dialogue 1 connected")
 	
 
-#func _ready(): 
+func change_bg() -> void:
+	var index := 0
+	while true:
+		$background/backgroundImg.texture = background1s[index]
+		index = (index + 1) % background1s.size()
+		await get_tree().create_timer(1.5).timeout # the speed at which the water changes 
 	
 var resource = preload("res://dialogue/balloon.tscn")
 #
@@ -51,7 +63,9 @@ func _unhandled_input(event: InputEvent) -> void:
 			
 			
 			#$FishingStartButton.visible = true 
-			
+@onready var reel_in: AudioStreamPlayer = $ReelIn
+@onready var bob_in: AudioStreamPlayer = $BobIn
+
 			#_on_dialogue_finished().emit()
 var cycles = 3 
 func run_cycle(): 
@@ -70,6 +84,7 @@ func run_cycle():
 		get_tree().root.add_child(balloon)
 		balloon.start(load(dialogues_list[i]), "start")
 		await DialogueManager.dialogue_ended 
+		bob_in.play()
 		
 		# second step is to play the bubble animation 
 		var bubbles_appear = bubbles.instantiate()
@@ -81,6 +96,7 @@ func run_cycle():
 		
 		# third step is to play the fishing scripts 
 		bubbles_appear.queue_free() # get rid of bubble instances before the next round 
+		reel_in.play()
 		await game_manager.start_fishing() 
 		
 	print("3 cycles completed")

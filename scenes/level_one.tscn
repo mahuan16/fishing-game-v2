@@ -6,8 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://4f6388wcdw22" path="res://assets/fisherman.png" id="2_bhu28"]
 [ext_resource type="Script" uid="uid://dcoajfqq45tcl" path="res://scripts/button.gd" id="2_t18mc"]
 [ext_resource type="Texture2D" uid="uid://difeqn4a8esmu" path="res://assets/boat1.PNG" id="3_4p75b"]
-[ext_resource type="Script" path="res://scenes/horror_timer.gd" id="7_4p75b"]
-[ext_resource type="PackedScene" uid="uid://bqy6uq45cnyxk" path="res://scenes/boss_fish.tscn" id="8_y8ti4"]
+[ext_resource type="Script" uid="uid://bl1g0vpf28iol" path="res://scenes/horror_timer.gd" id="7_4p75b"]
+[ext_resource type="AudioStream" uid="uid://5yi2uwk4wk4a" path="res://sfx/bobber-in.ogg" id="8_astit"]
+[ext_resource type="PackedScene" path="res://scenes/boss_fish.tscn" id="8_y8ti4"]
+[ext_resource type="AudioStream" uid="uid://cq4ahg5l15cf5" path="res://sfx/reel-in.ogg" id="9_astit"]
 
 [sub_resource type="ImageTexture" id="ImageTexture_4p75b"]
 
@@ -80,5 +82,11 @@ script = ExtResource("7_4p75b")
 
 [node name="bossFish" parent="." unique_id=1624968695 instance=ExtResource("8_y8ti4")]
 z_index = 7
+
+[node name="ReelIn" type="AudioStreamPlayer" parent="." unique_id=412893039]
+stream = ExtResource("9_astit")
+
+[node name="BobIn" type="AudioStreamPlayer" parent="." unique_id=382603681]
+stream = ExtResource("8_astit")
 
 [connection signal="pressed" from="FishingStartButton" to="FishingStartButton" method="_on_pressed"]

@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var timer: Timer = $Timer
 
-var possible_times = [3, 4, 5, 6]
+var possible_times = [4, 5, 6, 7]
 @onready var bubbles_sfx: AudioStreamPlayer = $BubblesSFX
 
 func _ready(): 
