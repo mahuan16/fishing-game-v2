@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://deple5a0s4wt4"
-path="res://.godot/imported/salmon.png-a4d9c8da275c96d3f1ebbc65f5ab66f7.ctex"
+uid="uid://jxnwn1a6ysfm"
+path="res://.godot/imported/yellowperchnew.PNG-66818da54b45ae8817a42e68ac7d0a4c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/fish/salmon.png"
-dest_files=["res://.godot/imported/salmon.png-a4d9c8da275c96d3f1ebbc65f5ab66f7.ctex"]
+source_file="res://assets/yellowperchnew.PNG"
+dest_files=["res://.godot/imported/yellowperchnew.PNG-66818da54b45ae8817a42e68ac7d0a4c.ctex"]
 
 [params]
 
