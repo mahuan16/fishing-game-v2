@@ -4,12 +4,14 @@
 [ext_resource type="Texture2D" uid="uid://c5iw7660y0v7j" path="res://assets/shop-bg.png" id="2_032fp"]
 [ext_resource type="Texture2D" uid="uid://d4efwq2xmthrw" path="res://assets/shop-slot.png" id="3_2fc2m"]
 [ext_resource type="Texture2D" uid="uid://cpba64y87pq3b" path="res://assets/shop-slot-purchased.png" id="4_2fc2m"]
+[ext_resource type="Texture2D" uid="uid://yfaoqo38f4ch" path="res://assets/coin.png" id="4_8r1wq"]
 [ext_resource type="Texture2D" uid="uid://b374s2cvnnmoi" path="res://assets/sold-out.png" id="5_8r1wq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8r1wq"]
 size = Vector2(227, 43)
 
 [node name="shop" type="Node2D" unique_id=1476982468]
+scale = Vector2(1.6, 1.6)
 script = ExtResource("1_1l46r")
 
 [node name="shopBg" type="Sprite2D" parent="." unique_id=284680656]
@@ -20,7 +22,7 @@ texture = ExtResource("2_032fp")
 [node name="midBoat" type="Area2D" parent="." unique_id=1064843062]
 position = Vector2(204, 81)
 
-[node name="Sprite2D" type="Sprite2D" parent="midBoat" unique_id=236847666]
+[node name="shopSlot" type="Sprite2D" parent="midBoat" unique_id=236847666]
 position = Vector2(29, 78)
 scale = Vector2(0.2548828, 0.2548828)
 texture = ExtResource("3_2fc2m")
@@ -30,32 +32,43 @@ position = Vector2(4, -1)
 shape = SubResource("RectangleShape2D_8r1wq")
 
 [node name="itemName" type="Label" parent="midBoat" unique_id=1719346573]
-offset_left = -97.0
+offset_left = -100.74997
 offset_top = -20.0
-offset_right = 14.0
-offset_bottom = 3.0
-theme_override_font_sizes/font_size = 11
+offset_right = 51.25003
+offset_bottom = 11.0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0.51, 0.32359502, 0.2499, 1)
+theme_override_font_sizes/font_size = 22
 text = "Mourning Star"
 metadata/_edit_use_anchors_ = true
 
 [node name="itemDesc" type="Label" parent="midBoat" unique_id=2099473745]
-offset_left = -98.0
+offset_left = -98.624985
 offset_top = -5.0
-offset_right = 119.0
-offset_bottom = 18.0
+offset_right = 200.37502
+offset_bottom = 37.0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0.6, 0.39360002, 0.312, 1)
 theme_override_constants/line_spacing = -2
-theme_override_font_sizes/font_size = 7
+theme_override_font_sizes/font_size = 15
 text = "A boat upgrade. Allows you to travel into 
 deeper waters."
 metadata/_edit_use_anchors_ = true
 
+[node name="coin" type="Sprite2D" parent="midBoat" unique_id=414940465]
+position = Vector2(107, -1.0000019)
+scale = Vector2(0.022708666, 0.022708666)
+texture = ExtResource("4_8r1wq")
+
 [node name="itemPrice" type="Label" parent="midBoat" unique_id=1550765578]
-offset_left = 90.0
-offset_top = -10.0
-offset_right = 130.0
-offset_bottom = 13.0
-theme_override_font_sizes/font_size = 11
-text = "50"
+offset_left = 81.0
+offset_top = -9.0
+offset_right = 121.0
+offset_bottom = 14.0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0.51, 0.32359502, 0.2499, 1)
+theme_override_font_sizes/font_size = 22
+text = "150"
 metadata/_edit_use_anchors_ = true
 
 [node name="purchased" type="Sprite2D" parent="midBoat" unique_id=1390409296]
@@ -71,7 +84,7 @@ texture = ExtResource("5_8r1wq")
 [node name="deepBoat" type="Area2D" parent="." unique_id=1864212827]
 position = Vector2(204, 150)
 
-[node name="Sprite2D" type="Sprite2D" parent="deepBoat" unique_id=865914198]
+[node name="shopSlot" type="Sprite2D" parent="deepBoat" unique_id=865914198]
 position = Vector2(29, 78)
 scale = Vector2(0.2548828, 0.2548828)
 texture = ExtResource("3_2fc2m")
@@ -81,31 +94,42 @@ position = Vector2(4, -1)
 shape = SubResource("RectangleShape2D_8r1wq")
 
 [node name="itemName" type="Label" parent="deepBoat" unique_id=1320332585]
-offset_left = -97.0
+offset_left = -100.74997
 offset_top = -20.0
-offset_right = 14.0
-offset_bottom = 3.0
-theme_override_font_sizes/font_size = 11
+offset_right = 22.25003
+offset_bottom = 12.0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0.51, 0.32359502, 0.2499, 1)
+theme_override_font_sizes/font_size = 23
 text = "Blackhymn"
 metadata/_edit_use_anchors_ = true
 
 [node name="itemDesc" type="Label" parent="deepBoat" unique_id=235280256]
-offset_left = -98.0
+offset_left = -99.874985
 offset_top = -5.0
-offset_right = 119.0
+offset_right = 250.12502
 offset_bottom = 18.0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0.6, 0.39360002, 0.312, 1)
 theme_override_constants/line_spacing = -2
-theme_override_font_sizes/font_size = 7
+theme_override_font_sizes/font_size = 15
 text = "A boat upgrade. Do you dare to venture further?"
 metadata/_edit_use_anchors_ = true
 
+[node name="Sprite2D" type="Sprite2D" parent="deepBoat" unique_id=1203897416]
+position = Vector2(108.875, -0.375)
+scale = Vector2(0.021985872, 0.02198587)
+texture = ExtResource("4_8r1wq")
+
 [node name="itemPrice" type="Label" parent="deepBoat" unique_id=708042521]
-offset_left = 90.0
-offset_top = -10.0
-offset_right = 130.0
-offset_bottom = 13.0
-theme_override_font_sizes/font_size = 11
-text = "100"
+offset_left = 78.125
+offset_top = -9.0
+offset_right = 128.125
+offset_bottom = 22.0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0.51, 0.32359502, 0.2499, 1)
+theme_override_font_sizes/font_size = 22
+text = "1000"
 metadata/_edit_use_anchors_ = true
 
 [node name="purchased" type="Sprite2D" parent="deepBoat" unique_id=293192019]
@@ -124,6 +148,7 @@ offset_top = 39.0
 offset_right = 68.0
 offset_bottom = 80.0
 theme_override_font_sizes/font_size = 9
+metadata/_edit_use_anchors_ = true
 
 [connection signal="mouse_entered" from="midBoat" to="." method="_on_mid_boat_mouse_entered"]
 [connection signal="mouse_exited" from="midBoat" to="." method="_on_mid_boat_mouse_exited"]

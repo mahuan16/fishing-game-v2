@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cln0fmb1rm06e" path="res://scripts/game_manager.gd" id="1_hwd4i"]
 [ext_resource type="PackedScene" uid="uid://b2c6wouw0lkx2" path="res://scenes/fish_database.tscn" id="2_glms7"]
-[ext_resource type="Texture2D" uid="uid://c84a35ifrn2kj" path="res://assets/bluerectangle.png" id="2_k4jhu"]
+[ext_resource type="Texture2D" uid="uid://dmals6ks0ob3x" path="res://assets/bluerectangle.png" id="2_k4jhu"]
 [ext_resource type="PackedScene" uid="uid://ft802be3cm8" path="res://scenes/user_interface.tscn" id="4_oo155"]
 
 [node name="gameManager" type="Node" unique_id=511014651]
@@ -26,14 +26,13 @@ scale = Vector2(1.2096603, 0.86278945)
 texture = ExtResource("2_k4jhu")
 
 [node name="YouCaughtX" type="Label" parent="CanvasLayer/Panel" unique_id=526736404]
-texture_filter = 3
+texture_filter = 1
 layout_mode = 0
 offset_left = -18.0
 offset_top = -90.99999
-offset_right = 98.591
-offset_bottom = -47.136322
-scale = Vector2(4.3999963, 4.3999963)
-theme_override_font_sizes/font_size = 15
+offset_right = 507.0
+offset_bottom = -2.9999924
+theme_override_font_sizes/font_size = 64
 text = "You caught"
 autowrap_mode = 2
 
