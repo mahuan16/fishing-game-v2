@@ -7,7 +7,6 @@ var hit_points : int
 var display_name : String
 var description : String
 var price : int
-var new_fish : bool = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

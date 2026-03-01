@@ -9,6 +9,8 @@ var fish : Node2D
 @onready var fish_name: Label = $fishName
 @onready var fish_description: Label = $fishDescription
 
+var newFish : bool = true
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

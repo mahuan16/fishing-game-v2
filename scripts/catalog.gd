@@ -6,6 +6,7 @@ const FISH_ENTRY = preload("res://scenes/fish_entry.tscn")
 
 @onready var nextPg: Button = $nextPg
 @onready var backPg: Button = $backPg
+@onready var fish_found_count: Label = $fishFoundCount
 
 
 var fishes : Array
@@ -14,6 +15,8 @@ var currentFishEntry : Node2D
 var pageNum : int = 1
 var fishEnd : int = 4
 var indexNum : int = 0
+
+var fishFound : int = 0
 
 func _ready() -> void:
 	#currentFish = FISH_SCENE.instantiate()
@@ -25,6 +28,8 @@ func _ready() -> void:
 	draw_fish(pageNum)
 	hide_fish()
 	
+	display_found()
+	
 
 func create_fish() -> void:
 	
@@ -35,13 +40,7 @@ func create_fish() -> void:
 		add_child(currentFishEntry)
 		currentFishEntry.newdata = fish
 		currentFishEntry.set_data()
-		
-	#draw_fish()
-		print(currentFishEntry.fish_img.texture)
 		index += 1
-		
-	
-		
 		
 	
 func draw_fish(pageNum : int) -> void:
@@ -64,7 +63,10 @@ func draw_fish(pageNum : int) -> void:
 		fishChild.scale = Vector2(0.1,0.1)
 		fishChild.position = Vector2(x,y)
 		var fishSprite = fishChild.fish_img
-		print(Vector2(column, row))
+		if fishChild.newFish:
+			fishChild.modulate = Color(0,0,0,1)
+		else:
+			fishFound += 1
 		
 		if (row >= 1):
 			x += horiSpacing
@@ -78,7 +80,8 @@ func draw_fish(pageNum : int) -> void:
 			y += vertSpacing
 			row += 1
 			
-			
+func display_found() -> void:
+	fish_found_count.text = str(fishFound) +"/18"
 
 
 func _on_next_pg_pressed() -> void:
