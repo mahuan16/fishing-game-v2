@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bqy6uq45cnyxk"]
+
+[ext_resource type="Script" uid="uid://drq6wsa8hu47u" path="res://scripts/boss_fish.gd" id="1_qnlv4"]
+[ext_resource type="Texture2D" uid="uid://bftmw2iv0qlxi" path="res://assets/player-fish.png" id="2_w01hu"]
+
+[node name="bossFish" type="Node2D" unique_id=1624968695]
+script = ExtResource("1_qnlv4")
+
+[node name="bossSprite" type="Sprite2D" parent="." unique_id=1418111976]
+texture = ExtResource("2_w01hu")

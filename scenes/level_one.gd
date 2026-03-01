@@ -4,8 +4,12 @@ extends Node2D
 @onready var press_space_to_start = $sequenceofevents/TextureRect/PressSpaceToStart
 @onready var test_dialogue_1: Node2D = $TestDialogue1
 
+
 signal dialogue1_finished()
 #@export var resource: PackedScene
+
+@onready var boss_fish: Node2D = $bossFish
+
 
 var dialogues_list = [ # because we need more dialogues than just that one at the beginning
 	"res://dialogue/dialogue1.dialogue", 
@@ -16,6 +20,7 @@ var dialogues_list = [ # because we need more dialogues than just that one at th
 
 func _ready(): 
 	$FishingStartButton.visible = false 
+	boss_fish.visible = false
 	$sequenceofevents/TextureRect/PressSpaceToStart.visible = true 
 	#if $FishingStartButton.is_action_pressed("left_click"):
 		#print("something")
@@ -79,6 +84,7 @@ func run_cycle():
 		await game_manager.start_fishing() 
 		
 	print("3 cycles completed")
+	boss_fight()
 
 @onready var game_manager: Node = %gameManager
 
@@ -107,4 +113,11 @@ func _on_dialogue_finished(dialogue): # I JUST NEEDED TO ADD A DAMNED DIALOGUE P
 
 
 func boss_fight(): 
-	pass 
+	#boss_fish.FISH_DATABASE = game_manager.fish_database
+	#
+	#boss_fish.assign_data()
+	#boss_fish.visible = true
+	#boss_fish.scale = Vector2(.15,.15)
+	#boss_fish.position = Vector2(900,350)
+	
+	game_manager.start_boss_fish(1)

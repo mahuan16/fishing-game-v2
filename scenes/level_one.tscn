@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://dcoajfqq45tcl" path="res://scripts/button.gd" id="2_t18mc"]
 [ext_resource type="Texture2D" uid="uid://difeqn4a8esmu" path="res://assets/boat1.PNG" id="3_4p75b"]
 [ext_resource type="Script" path="res://scenes/horror_timer.gd" id="7_4p75b"]
+[ext_resource type="PackedScene" uid="uid://bqy6uq45cnyxk" path="res://scenes/boss_fish.tscn" id="8_y8ti4"]
 
 [sub_resource type="ImageTexture" id="ImageTexture_4p75b"]
 
@@ -35,10 +36,10 @@ unique_name_in_owner = true
 
 [node name="FishingStartButton" type="Button" parent="." unique_id=1669046095]
 z_index = 5
-offset_left = 701.0
-offset_top = 242.0
-offset_right = 851.0
-offset_bottom = 288.0
+offset_left = 909.0
+offset_top = 72.0
+offset_right = 1059.0
+offset_bottom = 118.0
 text = "Start Fishing"
 script = ExtResource("2_t18mc")
 
@@ -76,5 +77,8 @@ text = "Press [Space] to start."
 
 [node name="Timer" type="Timer" parent="." unique_id=896867822]
 script = ExtResource("7_4p75b")
+
+[node name="bossFish" parent="." unique_id=1624968695 instance=ExtResource("8_y8ti4")]
+z_index = 7
 
 [connection signal="pressed" from="FishingStartButton" to="FishingStartButton" method="_on_pressed"]

@@ -10,14 +10,17 @@
 [ext_resource type="Resource" uid="uid://bl5imlb1e6fnn" path="res://resources/medium_fish/barracuda.tres" id="8_nnvls"]
 [ext_resource type="Resource" uid="uid://bl058mt7fhgku" path="res://resources/medium_fish/eel.tres" id="9_gfiub"]
 [ext_resource type="Resource" uid="uid://desqdrlfl5n22" path="res://resources/medium_fish/needlefish.tres" id="10_024xq"]
-[ext_resource type="Resource" path="res://resources/medium_fish/hatchetfish.tres" id="11_33qst"]
+[ext_resource type="Resource" uid="uid://bammy5bkqmnbn" path="res://resources/medium_fish/hatchetfish.tres" id="11_33qst"]
 [ext_resource type="Resource" uid="uid://bntlbu8mnd4h8" path="res://resources/medium_fish/lanternfish.tres" id="12_k7c4s"]
 [ext_resource type="Resource" uid="uid://gwfs0jwxm467" path="res://resources/deep_fish/oarfish.tres" id="13_n7vxe"]
 [ext_resource type="Resource" uid="uid://d2haij30sf7qj" path="res://resources/deep_fish/giantsquid.tres" id="14_024xq"]
 [ext_resource type="Resource" uid="uid://c5ydh8hk28h1y" path="res://resources/deep_fish/anglerfish.tres" id="15_33qst"]
 [ext_resource type="Resource" uid="uid://datgp6dxa8e4m" path="res://resources/deep_fish/fangtooth.tres" id="16_k7c4s"]
 [ext_resource type="Resource" uid="uid://ce7n28q74ubb2" path="res://resources/deep_fish/ribbonfish.tres" id="17_na4y8"]
+[ext_resource type="Resource" uid="uid://dmidfe31vf3o8" path="res://resources/boss_fish/tail.tres" id="18_33qst"]
+[ext_resource type="Resource" uid="uid://doyrir7c1uh1k" path="res://resources/boss_fish/tendrils.tres" id="19_k7c4s"]
+[ext_resource type="Resource" uid="uid://difbvgbuyukri" path="res://resources/boss_fish/body.tres" id="20_n7vxe"]
 
 [node name="fishDatabase" type="Node" unique_id=546373192]
 script = ExtResource("1_n5mrd")
-fish_array = Array[ExtResource("2_it0j7")]([ExtResource("6_4yuya"), ExtResource("4_nnvls"), ExtResource("5_gfiub"), ExtResource("3_2kmso"), ExtResource("7_f0blv"), ExtResource("8_nnvls"), ExtResource("9_gfiub"), ExtResource("10_024xq"), ExtResource("11_33qst"), ExtResource("12_k7c4s"), ExtResource("13_n7vxe"), ExtResource("14_024xq"), ExtResource("15_33qst"), ExtResource("16_k7c4s"), ExtResource("17_na4y8")])
+fish_array = Array[ExtResource("2_it0j7")]([ExtResource("6_4yuya"), ExtResource("4_nnvls"), ExtResource("5_gfiub"), ExtResource("3_2kmso"), ExtResource("7_f0blv"), ExtResource("8_nnvls"), ExtResource("9_gfiub"), ExtResource("10_024xq"), ExtResource("11_33qst"), ExtResource("12_k7c4s"), ExtResource("13_n7vxe"), ExtResource("14_024xq"), ExtResource("15_33qst"), ExtResource("16_k7c4s"), ExtResource("17_na4y8"), ExtResource("18_33qst"), ExtResource("19_k7c4s"), ExtResource("20_n7vxe")])
