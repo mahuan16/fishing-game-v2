@@ -19,6 +19,9 @@ var fish : Node2D
 var player_instance
 var gauge_instance
 
+@export var minLength = 25
+@export var maxLength = 50
+
 var coinCount : int = 0
 var progress_bar : ProgressBar
 
@@ -73,6 +76,23 @@ func start_boss_fish(level : int) -> void:
 		gauge_instance.global_position = Vector2(1152*.65,648*.5)
 		
 		create_health_bar()
+	elif level == 2:
+		var data : FishData = fish_database.fish_array[16]
+		fish.data = data
+		fish.set_data()
+		totalHealth = fish.hit_points
+		
+		fish.scale = Vector2(1.1,1.1)
+		fish.position = Vector2(900,350)
+		
+		fish.visible = true 
+		
+		create_fish_elements()
+		player_instance.SPEED = 500
+		player_instance.global_position = Vector2(1152*.67,648/3)
+		gauge_instance.global_position = Vector2(1152*.65,648*.5)
+		
+		create_health_bar()
 		
 	await fishing_finished
 	
@@ -114,8 +134,8 @@ func create_fish_elements() -> void:
 	player_instance.global_position = Vector2(1152*.8,648/3)
 	
 	# gauge settings + position
-	gauge_instance.min_length = 25
-	gauge_instance.max_length = 50
+	gauge_instance.min_length = minLength
+	gauge_instance.max_length = maxLength
 	gauge_instance.global_position = Vector2(1152*.77,648*.5)
 	
 	add_child(gauge_instance)

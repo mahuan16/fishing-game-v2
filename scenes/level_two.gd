@@ -5,7 +5,7 @@ extends Node2D
 @onready var test_dialogue_1: Node2D = $TestDialogue1
 @onready var horror_timers: Node2D = $HorrorTimers
 
-
+@onready var game_manager: Node = %gameManager
 signal dialogue1_finished()
 #@export var resource: PackedScene
 
@@ -25,6 +25,10 @@ func _ready():
 		#print("something")
 	#var horror_instance = horror_timer.new()
 	#horror_instance._ready()
+	game_manager.leastFish = 5
+	game_manager.mostFish = 9
+	game_manager.minLength = 10
+	game_manager.maxLength = 20
 	dialogue1_finished.connect(_on_dialogue_finished)
 	print("Dialogue 1 connected")
 	randomize()
@@ -92,8 +96,9 @@ func run_cycle():
 		await game_manager.start_fishing() 
 		
 	print("3 cycles completed")
+	boss_fight()
 
-@onready var game_manager: Node = %gameManager
+
 
 
 #func _on_pressed() -> void:
@@ -118,7 +123,8 @@ func _on_dialogue_finished(dialogue): # I JUST NEEDED TO ADD A DAMNED DIALOGUE P
 	#$sequenceofevents/TextureRect/PressSpaceToStart.visible = false 
 	print("visible: ", $sequenceofevents/TextureRect/PressSpaceToStart.visible) # to check if it's actually being set to invisible or not 
 
-
+func boss_fight() -> void:
+	game_manager.start_boss_fish(2)
 
 #func _load_horror(): 
 	#timer
