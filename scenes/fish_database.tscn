@@ -10,8 +10,8 @@
 [ext_resource type="Resource" uid="uid://bl5imlb1e6fnn" path="res://resources/medium_fish/barracuda.tres" id="8_nnvls"]
 [ext_resource type="Resource" uid="uid://bl058mt7fhgku" path="res://resources/medium_fish/eel.tres" id="9_gfiub"]
 [ext_resource type="Resource" uid="uid://nia0mfxck7sf" path="res://resources/medium_fish/needlefish.tres" id="10_024xq"]
-[ext_resource type="Resource" uid="uid://bammy5bkqmnbn" path="res://resources/medium_fish/hatchetfish.tres" id="11_33qst"]
-[ext_resource type="Resource" uid="uid://cdmgh3anaq5e1" path="res://resources/medium_fish/lanternfish.tres" id="12_k7c4s"]
+[ext_resource type="Resource" path="res://resources/medium_fish/hatchetfish.tres" id="11_33qst"]
+[ext_resource type="Resource" path="res://resources/medium_fish/lanternfish.tres" id="12_k7c4s"]
 [ext_resource type="Resource" uid="uid://gwfs0jwxm467" path="res://resources/deep_fish/oarfish.tres" id="13_n7vxe"]
 [ext_resource type="Texture2D" uid="uid://bgen088tuxsyh" path="res://assets/fish sprites/fish/deep/giantsquid.PNG" id="14_024xq"]
 [ext_resource type="Texture2D" uid="uid://bhw003wgsi2jd" path="res://assets/fish sprites/fish/deep/anglerfish.PNG" id="15_33qst"]
@@ -45,6 +45,7 @@ health = 13
 sprite = ExtResource("14_024xq")
 fishName = "Giant Squid"
 fishDesc = "These squid are large enough to battle sperm whales in the depths of the ocean."
+fishPrice = 40
 metadata/_custom_type_script = "uid://dphj5gxr8tnga"
 
 [sub_resource type="Resource" id="Resource_8tdks"]
@@ -54,6 +55,7 @@ health = 14
 sprite = ExtResource("15_33qst")
 fishName = "Anglerfish"
 fishDesc = "Males can bite females and release enzymes to fuse into her skin."
+fishPrice = 35
 metadata/_custom_type_script = "uid://dphj5gxr8tnga"
 
 [sub_resource type="Resource" id="Resource_na4y8"]
@@ -63,6 +65,7 @@ health = 10
 sprite = ExtResource("16_k7c4s")
 fishName = "Fangtooth"
 fishDesc = "Its teeth are so large it has to fit into pouches on either side of its brain."
+fishPrice = 48
 metadata/_custom_type_script = "uid://dphj5gxr8tnga"
 
 [node name="fishDatabase" type="Node" unique_id=546373192]
