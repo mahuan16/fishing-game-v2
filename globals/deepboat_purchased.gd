@@ -1,3 +1,3 @@
 extends Node
 
-var deepboat_purchased: bool = false 
+@export var deepboat_purchased: bool = false 
