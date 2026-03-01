@@ -15,17 +15,21 @@ const PLAYER = preload("res://scenes/player.tscn")
 @onready var panel = $CanvasLayer/Panel
 @onready var you_caught_x = $CanvasLayer/Panel/YouCaughtX
 
-var fish : Node
+var fish : Node2D
 var player_instance
 var gauge_instance
 
 var coinCount : int = 0
+var progress_bar : ProgressBar
+
+var totalHealth : float = 1.0
 
 func _ready() -> void:
 	fish = FISH_SCENE.instantiate()
 	add_child(fish)
 	fish.visible = false  
 	panel.visible = false # hide the panel to show the catches at the start
+
 
 # damage fish function
 func add_point() -> void:
@@ -34,6 +38,11 @@ func add_point() -> void:
 		coinCount += fish.price
 		user_interface.updateCoins(coinCount)
 		end_fishing()
+		if progress_bar:
+			destroy_health_bar()
+	if progress_bar:
+		update_health_bar()
+	
 
 signal fishing_finished 
 
@@ -45,7 +54,55 @@ func start_fishing() -> void:
 	fish.visible = false 
 	create_fish_elements()
 	await fishing_finished 
+
+func start_boss_fish(level : int) -> void:
+	if level == 1:
+		var data : FishData = fish_database.fish_array[15]
+		fish.data = data
+		fish.set_data()
+		totalHealth = fish.hit_points
+		
+		fish.scale = Vector2(1.1,1.1)
+		fish.position = Vector2(900,350)
+		
+		fish.visible = true 
+		
+		create_fish_elements()
+		player_instance.SPEED = 400
+		player_instance.global_position = Vector2(1152*.67,648/3)
+		gauge_instance.global_position = Vector2(1152*.65,648*.5)
+		
+		create_health_bar()
+		
+	await fishing_finished
 	
+func create_health_bar() -> void:
+	progress_bar = ProgressBar.new()
+	progress_bar.z_index = 7
+	progress_bar.global_position = Vector2(800, 200)
+	
+	var bg := StyleBoxFlat.new()
+	bg.bg_color = Color(0.15, 0.15, 0.15, 1.0)
+	
+	var fill := StyleBoxFlat.new()
+	fill.bg_color = Color(0.7, 0.14, 0.14, 1.0) 
+	
+	progress_bar.add_theme_stylebox_override("background", bg)
+	progress_bar.add_theme_stylebox_override("fill", fill)
+	
+	progress_bar.custom_minimum_size.x = 200
+	progress_bar.value = 100
+	
+	add_child(progress_bar)
+	
+func destroy_health_bar() -> void:
+	progress_bar.queue_free()
+	
+func update_health_bar() -> void:
+	
+	var percent : float = fish.hit_points/totalHealth
+
+	progress_bar.value = percent*100
 
 func create_fish_elements() -> void:
 	player_instance = PLAYER.instantiate()
