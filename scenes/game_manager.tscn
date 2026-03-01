@@ -1,16 +1,13 @@
 [gd_scene format=3 uid="uid://ew1k35eoeyam"]
 
 [ext_resource type="Script" uid="uid://cln0fmb1rm06e" path="res://scripts/game_manager.gd" id="1_hwd4i"]
-[ext_resource type="Script" uid="uid://c71jiurd2cba6" path="res://scripts/fish_database.gd" id="2_jdad8"]
-[ext_resource type="Script" uid="uid://dphj5gxr8tnga" path="res://scripts/fish_data.gd" id="3_k4jhu"]
-[ext_resource type="Resource" uid="uid://tei1rijwl82c" path="res://resources/shallow_fish/tuna.tres" id="4_frtjd"]
-[ext_resource type="Resource" uid="uid://bigct78eh3k6c" path="res://resources/shallow_fish/salmon.tres" id="5_0rse5"]
-[ext_resource type="Resource" uid="uid://cxfsy0toe7ijx" path="res://resources/shallow_fish/mahi_mahi.tres" id="6_aonbx"]
-[ext_resource type="Resource" uid="uid://dss0wyvjg88rn" path="res://resources/shallow_fish/clownfish.tres" id="7_lcbjr"]
-[ext_resource type="Resource" uid="uid://cp3hscrx5akn" path="res://resources/shallow_fish/yellow_perch.tres" id="8_30v7y"]
+[ext_resource type="PackedScene" uid="uid://bbuw7ou4jn3yj" path="res://scenes/fish_database.tscn" id="2_glms7"]
 
 [node name="gameManager" type="Node" unique_id=511014651]
 script = ExtResource("1_hwd4i")
+
+[node name="fishDatabase" parent="." unique_id=546373192 instance=ExtResource("2_glms7")]
+unique_name_in_owner = true
 
 [node name="score" type="Label" parent="." unique_id=2001807506]
 offset_left = 12.0
@@ -18,7 +15,3 @@ offset_top = 6.0
 offset_right = 164.0
 offset_bottom = 57.0
 text = "Score: 0"
-
-[node name="fishDatabase" type="Node" parent="." unique_id=980899326]
-script = ExtResource("2_jdad8")
-fish_array = Array[ExtResource("3_k4jhu")]([ExtResource("4_frtjd"), ExtResource("5_0rse5"), ExtResource("6_aonbx"), ExtResource("7_lcbjr"), ExtResource("8_30v7y")])

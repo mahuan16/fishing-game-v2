@@ -11,4 +11,6 @@ script = ExtResource("1_lfbqq")
 unique_name_in_owner = true
 
 [node name="Book" type="Sprite2D" parent="." unique_id=792995224]
+position = Vector2(580, 325)
+scale = Vector2(2.102811, 1.9976903)
 texture = ExtResource("1_iyahu")

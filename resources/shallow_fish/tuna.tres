@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="FishData" format=3 uid="uid://tei1rijwl82c"]
 
 [ext_resource type="Script" uid="uid://dphj5gxr8tnga" path="res://scripts/fish_data.gd" id="1_r81u0"]
+[ext_resource type="Texture2D" uid="uid://ncpy3dk7p3rj" path="res://assets/fish/tuna.png" id="2_pupvq"]
 
 [resource]
 script = ExtResource("1_r81u0")
 health = 5
+sprite = ExtResource("2_pupvq")
 fishName = "Tuna"
 fishDesc = "im tuna"
 fishPrice = 5

@@ -2,7 +2,7 @@ extends Node2D
 
 const FISH_SCENE = preload("uid://ptd54wdcx6by")
 
-var fish : Node
+var fish : Node2D
 @export var data : FishData
 
 @onready var fish_img: Sprite2D = $fishImg
@@ -12,9 +12,10 @@ var fish : Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	fish = FISH_SCENE.instantiate()
+	pass
 	
 func set_data() -> void:
+	fish = FISH_SCENE.instantiate()
 	fish.data = data
 	fish.set_data()
 
