@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bck386jlkio14"]
+[gd_scene format=3 uid="uid://giogvsklq8e6"]
 
 [ext_resource type="Script" uid="uid://dha3ijwxsr4pk" path="res://scenes/level_two.gd" id="1_mmtqo"]
 [ext_resource type="Texture2D" uid="uid://bklwjr2jfj37j" path="res://assets/backgrounds/level-two-bg.jpg" id="2_mmtqo"]

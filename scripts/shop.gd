@@ -7,6 +7,7 @@ extends Node2D
 var midPrice : int = 150
 
 @onready var game_manager = get_parent().get_parent()
+@onready var user_interface = get_parent()
 
 # deep level boat
 @onready var deep_boat: Area2D = $deepBoat
@@ -20,6 +21,10 @@ var deep_boat_selected : bool = false
 
 var currentCoinCount : int = 0
 
+var click_cooldown := 0.4
+var last_click_time := -100.0
+
+
 func _ready() -> void:
 	purchased.visible = false
 	soldout.visible = false
@@ -27,12 +32,19 @@ func _ready() -> void:
 	soldout_deep.visible = false
 
 func _input(event: InputEvent) -> void:
+	var now := Time.get_ticks_msec() / 1000.0
+
+	if now - last_click_time < click_cooldown:
+		return  # ignore spam
+	last_click_time = now
+	
 	if event is InputEventMouseButton:
 		if mid_boat_selected:
 			if checkMoney("mid"):
 				purchased.visible = true
 				soldout.visible = true
 				game_manager.coinCount -= midPrice
+				user_interface.updateCoins(game_manager.coinCount)
 			else:
 				refuse_purchase(1)
 		elif deep_boat_selected:
@@ -41,6 +53,7 @@ func _input(event: InputEvent) -> void:
 					purchased_deep.visible = true
 					soldout_deep.visible = true
 					game_manager.coinCount -= deepPrice
+					user_interface.updateCoins(game_manager.coinCount)
 				else:
 					refuse_purchase(1)
 			else:
