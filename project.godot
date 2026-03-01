@@ -24,8 +24,8 @@ buses/default_bus_layout="uid://bjhbnr8w5lpl8"
 DialogueManager="*uid://c3rodes2l3gxb"
 DialogueTrueornot="*uid://dfgb2ycrh12ce"
 BackgroundMusic="*uid://bbf4q8yrn3uvf"
-MidboatPurchased="*uid://iqhrlpautfms"
 DeepboatPurchased="*uid://cnma1ocl3wnn8"
+MidboatPurchased="*uid://iqhrlpautfms"
 
 [dialogue_manager]
 
