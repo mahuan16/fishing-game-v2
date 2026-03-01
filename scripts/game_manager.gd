@@ -24,7 +24,7 @@ var coinCount : int = 0
 func _ready() -> void:
 	fish = FISH_SCENE.instantiate()
 	add_child(fish)
-	fish.visible = false 
+	fish.visible = false  
 	panel.visible = false # hide the panel to show the catches at the start
 
 # damage fish function
@@ -71,13 +71,26 @@ func end_fishing() -> void:
 # 	score.text = "You caught " + str(fish.display_name)
 	
 	fish.visible = true # show the fish now 
-	fish.global_position = Vector2(130, 50)
+	fish.global_position = Vector2(970, 80)
 	fish_database.fish_array[fish.fishID].found = true
 	
 	you_caught_x.text = "Caught " + str(fish.display_name) + "!"
 	panel.visible = true 
 	
-	await get_tree().create_timer(2.0).timeout # disappear after 3 secs
+	await get_tree().create_timer(1).timeout
+
+	# slide up out of frame
+	var tween := get_tree().create_tween()
+	tween.set_trans(Tween.TRANS_SINE)
+	tween.set_ease(Tween.EASE_IN_OUT)
+
+	var start_pos : Vector2 = fish.global_position
+	var end_pos : Vector2 = start_pos + Vector2(0, -150)
+
+	tween.tween_property(fish, "global_position", end_pos, 0.6)
+	await tween.finished
+
+	#await get_tree().create_timer(2.0).timeout # disappear after 3 secs
 	panel.visible = false # disappear the panel after 3 secs
 	fish.visible = false 
 	
