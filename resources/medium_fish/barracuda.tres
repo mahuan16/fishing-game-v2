@@ -1,11 +1,13 @@
 [gd_resource type="Resource" script_class="FishData" format=3 uid="uid://bl5imlb1e6fnn"]
 
 [ext_resource type="Script" uid="uid://dphj5gxr8tnga" path="res://scripts/fish_data.gd" id="1_nh6iq"]
+[ext_resource type="Texture2D" uid="uid://wvi37rs18w12" path="res://assets/fish sprites/fish/middle/barracuda.PNG" id="2_pxe2i"]
 
 [resource]
 script = ExtResource("1_nh6iq")
 id = 5
 health = 8
+sprite = ExtResource("2_pxe2i")
 fishName = "Barracuda"
 fishPrice = 10
 metadata/_custom_type_script = "uid://dphj5gxr8tnga"

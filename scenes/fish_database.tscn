@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://b2c6wouw0lkx2"]
+
+[ext_resource type="Script" uid="uid://c71jiurd2cba6" path="res://scripts/fish_database.gd" id="1_n5mrd"]
+[ext_resource type="Script" uid="uid://dphj5gxr8tnga" path="res://scripts/fish_data.gd" id="2_it0j7"]
+[ext_resource type="Resource" uid="uid://dss0wyvjg88rn" path="res://resources/shallow_fish/clownfish.tres" id="3_2kmso"]
+[ext_resource type="Resource" uid="uid://cxfsy0toe7ijx" path="res://resources/shallow_fish/mahi_mahi.tres" id="4_pnw6n"]
+[ext_resource type="Resource" uid="uid://bigct78eh3k6c" path="res://resources/shallow_fish/salmon.tres" id="5_v4oht"]
+[ext_resource type="Resource" uid="uid://tei1rijwl82c" path="res://resources/shallow_fish/tuna.tres" id="6_4yuya"]
+[ext_resource type="Resource" uid="uid://cp3hscrx5akn" path="res://resources/shallow_fish/yellow_perch.tres" id="7_f0blv"]
+
+[node name="fishDatabase" type="Node" unique_id=546373192]
+script = ExtResource("1_n5mrd")
+fish_array = Array[ExtResource("2_it0j7")]([ExtResource("3_2kmso"), ExtResource("4_pnw6n"), ExtResource("5_v4oht"), ExtResource("6_4yuya"), ExtResource("7_f0blv")])

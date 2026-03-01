@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="FishData" format=3 uid="uid://dss0wyvjg88rn"]
 
 [ext_resource type="Script" uid="uid://dphj5gxr8tnga" path="res://scripts/fish_data.gd" id="1_c1si5"]
+[ext_resource type="Texture2D" uid="uid://bf8172b6ld0sn" path="res://assets/fish sprites/fish/surface/clownfish.PNG" id="2_tr0n7"]
 
 [resource]
 script = ExtResource("1_c1si5")
 id = 3
 health = 6
+sprite = ExtResource("2_tr0n7")
 fishPrice = 6
 metadata/_custom_type_script = "uid://dphj5gxr8tnga"
