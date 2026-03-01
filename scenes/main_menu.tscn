@@ -53,22 +53,21 @@ grow_vertical = 0
 text = "HELP"
 
 [node name="Instructions" type="TextureRect" parent="." unique_id=1487037323]
-visible = false
 layout_mode = 0
-offset_left = 34.0
-offset_top = 7.0
-offset_right = 1186.0
-offset_bottom = 655.0
-scale = Vector2(0.95, 0.95)
+offset_left = 111.0
+offset_top = 153.0
+offset_right = 1263.0
+offset_bottom = 801.0
+scale = Vector2(0.7863835, 0.7863835)
 texture = ExtResource("3_8ln24")
 
 [node name="ExitHelp" type="Button" parent="." unique_id=2137252885]
-visible = false
 layout_mode = 0
-offset_left = 134.0
-offset_top = 40.0
-offset_right = 227.0
-offset_bottom = 135.0
+offset_left = 211.0
+offset_top = 186.00002
+offset_right = 304.0
+offset_bottom = 281.0
+scale = Vector2(0.8277721, 0.8277721)
 icon = ExtResource("4_rtw2f")
 flat = true
 expand_icon = true
