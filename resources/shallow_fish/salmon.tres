@@ -9,5 +9,6 @@ id = 1
 health = 5
 sprite = ExtResource("2_2civw")
 fishName = "Salmon"
+fishDesc = "They are born in freshwater and migrate to the oceans, just to return back home once more."
 fishPrice = 5
 metadata/_custom_type_script = "uid://dphj5gxr8tnga"

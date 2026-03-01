@@ -6,5 +6,8 @@
 [resource]
 script = ExtResource("1_b383v")
 id = 12
+health = 14
 sprite = ExtResource("2_lvlai")
+fishName = "Anglerfish"
+fishDesc = "Males can bite females and release enzymes to fuse into her skin."
 metadata/_custom_type_script = "uid://dphj5gxr8tnga"

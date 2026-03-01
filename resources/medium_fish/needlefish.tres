@@ -6,5 +6,9 @@
 [resource]
 script = ExtResource("1_0vmqu")
 id = 7
+health = 8
 sprite = ExtResource("2_jdfxt")
+fishName = "Needlefish"
+fishDesc = "Thes fish are known to leap out of the water at 38 mph - fast enough to kill a human."
+fishPrice = 23
 metadata/_custom_type_script = "uid://dphj5gxr8tnga"

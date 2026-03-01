@@ -8,5 +8,7 @@ script = ExtResource("1_c1si5")
 id = 3
 health = 6
 sprite = ExtResource("2_tr0n7")
+fishName = "Clownfish"
+fishDesc = "A hermaphroditic species that are born males and turn female when the previous dominant female dies."
 fishPrice = 6
 metadata/_custom_type_script = "uid://dphj5gxr8tnga"
