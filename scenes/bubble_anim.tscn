@@ -45,6 +45,7 @@ script = ExtResource("1_g1fdr")
 
 [node name="bubbling" type="Sprite2D" parent="." unique_id=1621230638]
 position = Vector2(615, 315)
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_g1fdr")
 hframes = 6
 

@@ -1,17 +1,27 @@
 extends Node2D
 
 @onready var fishing_start_button: Button = $FishingStartButton
-@onready var texture_rect: TextureRect = $sequenceofevents/TextureRect
+@onready var press_space_to_start = $sequenceofevents/TextureRect/PressSpaceToStart
 @onready var test_dialogue_1: Node2D = $TestDialogue1
 
 signal dialogue1_finished()
 #@export var resource: PackedScene
 
+var dialogues_list = [ # because we need more dialogues than just that one at the beginning
+	"res://dialogue/dialogue1.dialogue", 
+	"res://dialogue/dialogue2.dialogue",
+	"res://dialogue/dialogue3.dialogue"
+]
+
+
 func _ready(): 
 	$FishingStartButton.visible = false 
+	$sequenceofevents/TextureRect/PressSpaceToStart.visible = true 
 	#if $FishingStartButton.is_action_pressed("left_click"):
 		#print("something")
 	dialogue1_finished.connect(_on_dialogue_finished)
+	print("Dialogue 1 connected")
+	
 
 #func _ready(): 
 	
@@ -22,24 +32,75 @@ var resource = preload("res://dialogue/balloon.tscn")
 
 # below is dialogue manager stuff 
 func _unhandled_input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("ui_accept"): 
+	if Input.is_action_just_pressed("ui_accept"): # upon pressing space, dialogue pops up 
 		if Globals.dialogue_enabled == true: 
-			var balloon: BaseGameDialogueBalloon = resource.instantiate()
-			get_tree().root.add_child(balloon)
+			Globals.dialogue_enabled = false # prevent re-triggering of the dialogues 
+			press_space_to_start.visible = false
+			await run_cycle() 
+			#var balloon: BaseGameDialogueBalloon = resource.instantiate()
+			#get_tree().root.add_child(balloon)
+			#balloon.start(load("res://dialogue/dialogue1.dialogue"), "start")
+			#DialogueManager.dialogue_ended.connect(_on_dialogue_finished)
+			print("Connecting signal")
 			
-			balloon.dialogue_ended.connect(_on_dialogue_finished)
 			
-			balloon.start(load("res://dialogue/dialogue1.dialogue"), "start")
+			
 			#$FishingStartButton.visible = true 
 			
-			_on_dialogue_finished().emit()
+			#_on_dialogue_finished().emit()
+var cycles = 3 
+func run_cycle(): 
+	for i in range(cycles): 
+		"""
+		CYCLE: 
+		1. Dialogue ends
+		2. Bubble animation instantiates; there's a random delay until the bubble animation plays.
+		3. The start_fishing script plays upon the ending of the bubble animation.
+		A dialogue plays after the player finishes catching a fish.
+		The bubble animation waits until after the start_fishing script completely ends before starting again.
+		The cycle repeats 3x, dialogue -> bubble -> fishing.
+		"""
+		# so first step is this: playing the dialogue 
+		var balloon: BaseGameDialogueBalloon = resource.instantiate()
+		get_tree().root.add_child(balloon)
+		balloon.start(load(dialogues_list[i]), "start")
+		await DialogueManager.dialogue_ended 
+		
+		# second step is to play the bubble animation 
+		var bubbles_appear = bubbles.instantiate()
+		get_tree().root.add_child(bubbles_appear)
+		bubbles_appear.global_position = Vector2(50, 130)
+		
+		var anim_player = bubbles_appear.get_node("AnimationPlayer")
+		await anim_player.animation_finished
+		
+		# third step is to play the fishing scripts 
+		bubbles_appear.queue_free() # get rid of bubble instances before the next round 
+		await game_manager.start_fishing() 
+		
+	print("3 cycles completed")
 
 @onready var game_manager: Node = %gameManager
 
 
 #func _on_pressed() -> void:
 	
+var bubbles := preload("res://scenes/bubble_anim.tscn")
 
-func _on_dialogue_finished(): 
-	game_manager.start_fishing()
-	Globals.dialogue_enabled = false 
+func _on_dialogue_finished(dialogue): # I JUST NEEDED TO ADD A DAMNED DIALOGUE PARAMETER AND THEN THE DIALGOEU WEORANODN IT WORKS... 
+	print("Signal connected")
+	#print("Timer for 5 secs... started")
+	#await get_tree().create_timer(3.0).timeout # wait 3 seconds
+	#print("5-secs ended!")
+	#var bubbles_appear = bubbles.instantiate()
+	#get_tree().root.add_child(bubbles_appear)
+	#bubbles_appear.global_position = Vector2(50, 130)
+	#
+	#var anim_player = bubbles_appear.get_node("AnimationPlayer")
+	##anim_player.play("bubbling") 
+	#await anim_player.animation_finished
+	
+	#game_manager.start_fishing()
+	#Globals.dialogue_enabled = false 
+	#$sequenceofevents/TextureRect/PressSpaceToStart.visible = false 
+	print("visible: ", $sequenceofevents/TextureRect/PressSpaceToStart.visible) # to check if it's actually being set to invisible or not 

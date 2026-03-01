@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var timer: Timer = $Timer
 
-var possible_times = [5, 6, 7, 8]
+var possible_times = [7, 8, 9, 10]
 
 func _ready(): 
 	timer.wait_time = possible_times.pick_random() # pick a random time for the timer
@@ -17,12 +17,5 @@ func _on_timer_timeout() -> void:
 	timer.start()
 
 func _process(delta: float):
-	var secs_left = int(timer.time_left)
-	#var last_second: int = -1 
-	if secs_left > 0:
-		if secs_left != int(secs_left):
-			print(int(timer.time_left))
-
-#
-	#if timer.time_left > 0:
-		#print(timer.time_left)
+	if timer.time_left > 0:
+		print(timer.time_left)
