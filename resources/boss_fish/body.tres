@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="FishData" format=3 uid="uid://difbvgbuyukri"]
+
+[ext_resource type="Script" uid="uid://dphj5gxr8tnga" path="res://scripts/fish_data.gd" id="1_k7n0o"]
+[ext_resource type="Texture2D" uid="uid://b4y8wrhig3ho" path="res://assets/boss3.PNG" id="2_0qx74"]
+
+[resource]
+script = ExtResource("1_k7n0o")
+id = 17
+health = 40
+sprite = ExtResource("2_0qx74")
+fishName = "HER"
+fishDesc = "It's her. She's here to bring you to drag you to hell together."
+metadata/_custom_type_script = "uid://dphj5gxr8tnga"

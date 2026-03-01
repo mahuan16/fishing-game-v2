@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export var upperLimit : int
 @export var lowerLimit : int
 
-const SPEED = 300.0
+var SPEED = 300.0
 var direction : int = 1 # start going down
 
 @onready var fish_shape: CollisionPolygon2D = $fishShape

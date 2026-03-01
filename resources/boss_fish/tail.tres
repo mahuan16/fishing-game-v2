@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="FishData" format=3 uid="uid://dmidfe31vf3o8"]
+
+[ext_resource type="Script" uid="uid://dphj5gxr8tnga" path="res://scripts/fish_data.gd" id="1_34ebo"]
+[ext_resource type="Texture2D" uid="uid://c7a70igwvfy13" path="res://assets/boss1.PNG" id="2_kdlu8"]
+
+[resource]
+script = ExtResource("1_34ebo")
+id = 15
+health = 3
+sprite = ExtResource("2_kdlu8")
+fishName = "Heavy Tail"
+fishDesc = "It flops around helplessly on the ground, feigning helplessness."
+fishPrice = 150
+metadata/_custom_type_script = "uid://dphj5gxr8tnga"

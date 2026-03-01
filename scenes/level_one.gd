@@ -4,8 +4,12 @@ extends Node2D
 @onready var press_space_to_start = $sequenceofevents/TextureRect/PressSpaceToStart
 @onready var test_dialogue_1: Node2D = $TestDialogue1
 
+
 signal dialogue1_finished()
 #@export var resource: PackedScene
+
+@onready var boss_fish: Node2D = $bossFish
+
 
 var dialogues_list = [ # because we need more dialogues than just that one at the beginning
 	"res://dialogue/dialogue1.dialogue", 
@@ -13,16 +17,10 @@ var dialogues_list = [ # because we need more dialogues than just that one at th
 	"res://dialogue/dialogue3.dialogue"
 ]
 
-var background1s: Array[Texture2D] = [
-	preload("res://bg_anims/level-one-bg.png"),
-	preload("res://bg_anims/level-one-bg2.png"),
-	preload("res://bg_anims/level-one-bg3.png"),
-	preload("res://bg_anims/level-one-bg4.png") 
-]
 
 func _ready(): 
 	$FishingStartButton.visible = false 
-	change_bg()
+	boss_fish.visible = false
 	$sequenceofevents/TextureRect/PressSpaceToStart.visible = true 
 	#if $FishingStartButton.is_action_pressed("left_click"):
 		#print("something")
@@ -30,17 +28,8 @@ func _ready():
 	print("Dialogue 1 connected")
 	
 
-#func change_backgrounds(): 
-	#for i in range(): 
-		#$background/backgroundImg.texture = background1s[i]
-
-func change_bg() -> void:
-	var index := 0
-	while true:
-		$background/backgroundImg.texture = background1s[index]
-		index = (index + 1) % background1s.size()
-		await get_tree().create_timer(1.5).timeout # the speed at which the water changes 
-
+#func _ready(): 
+	
 var resource = preload("res://dialogue/balloon.tscn")
 #
 #DialogueManager.show_dialogue_balloon(resource, "start")
@@ -60,15 +49,10 @@ func _unhandled_input(event: InputEvent) -> void:
 			print("Connecting signal")
 			
 			
-#@onready var bubbling_sfx: AudioStreamPlayer = $BubblingSFX
-
+			
 			#$FishingStartButton.visible = true 
 			
 			#_on_dialogue_finished().emit()
-			
-@onready var bobber_in: AudioStreamPlayer = $BobberIn
-@onready var reel_in: AudioStreamPlayer = $ReelIn
-
 var cycles = 3 
 func run_cycle(): 
 	for i in range(cycles): 
@@ -89,25 +73,18 @@ func run_cycle():
 		
 		# second step is to play the bubble animation 
 		var bubbles_appear = bubbles.instantiate()
-		bobber_in.play() 
-		
 		get_tree().root.add_child(bubbles_appear)
 		bubbles_appear.global_position = Vector2(50, 130)
 		
-		
 		var anim_player = bubbles_appear.get_node("AnimationPlayer")
-		
 		await anim_player.animation_finished
-		
 		
 		# third step is to play the fishing scripts 
 		bubbles_appear.queue_free() # get rid of bubble instances before the next round 
-		reel_in.play()
 		await game_manager.start_fishing() 
 		
-		
-		
 	print("3 cycles completed")
+	boss_fight()
 
 @onready var game_manager: Node = %gameManager
 
@@ -136,4 +113,11 @@ func _on_dialogue_finished(dialogue): # I JUST NEEDED TO ADD A DAMNED DIALOGUE P
 
 
 func boss_fight(): 
-	pass 
+	#boss_fish.FISH_DATABASE = game_manager.fish_database
+	#
+	#boss_fish.assign_data()
+	#boss_fish.visible = true
+	#boss_fish.scale = Vector2(.15,.15)
+	#boss_fish.position = Vector2(900,350)
+	
+	game_manager.start_boss_fish(1)

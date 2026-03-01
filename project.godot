@@ -29,6 +29,10 @@ BackgroundMusic="*uid://bbf4q8yrn3uvf"
 
 runtime/balloon_path="res://dialogue/balloon.tscn"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
