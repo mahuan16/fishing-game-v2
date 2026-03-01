@@ -8,19 +8,23 @@ var currentFish : Node2D
 var fishes : Array
 var currentFishEntry : Node2D
 
+var pageNum : int = 1
+var fishEnd : int = 4
+
 func _ready() -> void:
 	#currentFish = FISH_SCENE.instantiate()
 	fishes = fish_database.fish_array
 	
-	create_fish()
+	create_fish(fishEnd)
 	#await get_tree().process_frame
-	draw_fish()
+	draw_fish(pageNum)
 	
 
-func create_fish() -> void:
+func create_fish(breakPoint : int) -> void:
 	
 	var index : int = 0
 	for fish in fishes:
+		
 		
 		currentFishEntry = FISH_ENTRY.instantiate()
 		currentFishEntry.name = str(index)
@@ -34,16 +38,31 @@ func create_fish() -> void:
 		print(currentFishEntry.fish_img.texture)
 		index += 1
 		
+		if index >= breakPoint:
+			break
+		
+		
 	
-func draw_fish() -> void:
-	var x : int = 250
-	var y : int = 100
+func draw_fish(pageNum : int) -> void:
+	var xOri : int = 350
+	var yOri : int = 100
+	
+	var x : int = xOri
+	var y : int = yOri
+	
+	var vertSpacing : int = 250
+	var horiSpacing : int = 425
 	
 	var column : int = 0 # 0-3
 	var row : int = 0 # 0-2
 	
+	
 	print("drawing fish")
-	for i in range(fishes.size()):
+
+		
+		
+		
+	for i in range(fishEnd):
 		var index : String = str(i)
 		var fishChild = get_node(index)
 		fishChild.scale = Vector2(0.1,0.1)
@@ -51,21 +70,23 @@ func draw_fish() -> void:
 		var fishSprite = fishChild.fish_img
 		print(Vector2(column, row))
 		if fishSprite.texture.get_size().y >=2000:
-			if column >= 3:
-				y+=180
-				x = 100
+			if column >= 1:
+				y+=vertSpacing
+				x = xOri
 				row +=1
+				column = 0
 			else:
-				x+= 250
-			column += 1
+				x+= horiSpacing
+				column += 1
 		else:
-			if row >= 2:
-				x+=250
-				y = 100
+			if row >= 1:
+				x+=horiSpacing
+				y = yOri
 				column +=1
+				row = 0
 			else:
-				y +=180
-			row +=1
+				y +=vertSpacing
+				row +=1
 		
 			
 		
