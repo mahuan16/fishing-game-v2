@@ -1,9 +1,9 @@
-extends Node2D
+extends Node2D # fish entry
 
 const FISH_SCENE = preload("uid://ptd54wdcx6by")
 
 var fish : Node2D
-@export var data : FishData
+@export var newdata : FishData
 
 @onready var fish_img: Sprite2D = $fishImg
 @onready var fish_name: Label = $fishName
@@ -12,15 +12,17 @@ var fish : Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	fish = FISH_SCENE.instantiate()
+	add_child(fish)
+	print("entry added to tree")
 	
 func set_data() -> void:
-	fish = FISH_SCENE.instantiate()
-	fish.data = data
+	
+	fish.data = newdata
 	fish.set_data()
 
 func update_children() -> void:
-	fish_img.texture = fish.sprite
+	fish_img.texture = fish.fish_sprite
 	fish_name.text = fish.display_name
 	fish_description.text = fish.description
 
