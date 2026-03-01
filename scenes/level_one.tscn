@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://4f6388wcdw22" path="res://assets/fisherman.png" id="2_bhu28"]
 [ext_resource type="Script" uid="uid://dcoajfqq45tcl" path="res://scripts/button.gd" id="2_t18mc"]
 [ext_resource type="Texture2D" uid="uid://difeqn4a8esmu" path="res://assets/boat1.PNG" id="3_4p75b"]
-[ext_resource type="Script" uid="uid://bl1g0vpf28iol" path="res://scenes/horror_timer.gd" id="7_4p75b"]
+[ext_resource type="Script" path="res://scenes/horror_timer.gd" id="7_4p75b"]
 
 [sub_resource type="ImageTexture" id="ImageTexture_4p75b"]
 

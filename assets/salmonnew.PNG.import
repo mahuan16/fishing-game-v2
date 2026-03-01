@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://deple5a0s4wt4"
-path="res://.godot/imported/salmon.png-a4d9c8da275c96d3f1ebbc65f5ab66f7.ctex"
+uid="uid://cdnt4k6fv66sx"
+path="res://.godot/imported/salmonnew.PNG-6346f9c943c4deff182206e60a24bc2e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/fish/salmon.png"
-dest_files=["res://.godot/imported/salmon.png-a4d9c8da275c96d3f1ebbc65f5ab66f7.ctex"]
+source_file="res://assets/salmonnew.PNG"
+dest_files=["res://.godot/imported/salmonnew.PNG-6346f9c943c4deff182206e60a24bc2e.ctex"]
 
 [params]
 
