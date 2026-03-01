@@ -104,3 +104,7 @@ func _on_dialogue_finished(dialogue): # I JUST NEEDED TO ADD A DAMNED DIALOGUE P
 	#Globals.dialogue_enabled = false 
 	#$sequenceofevents/TextureRect/PressSpaceToStart.visible = false 
 	print("visible: ", $sequenceofevents/TextureRect/PressSpaceToStart.visible) # to check if it's actually being set to invisible or not 
+
+
+func boss_fight(): 
+	pass 

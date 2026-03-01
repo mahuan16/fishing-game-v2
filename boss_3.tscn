@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://8a3v04kdlljy"]
+
+[ext_resource type="Texture2D" uid="uid://b4y8wrhig3ho" path="res://assets/boss3.PNG" id="1_k54ds"]
+
+[node name="Boss3" type="Control" unique_id=1478615501]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1021963558]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -591.99994
+offset_top = -373.99982
+offset_right = 1768.0
+offset_bottom = 1297.0002
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.48999998, 0.48999998)
+pivot_offset = Vector2(576, 324)
+pivot_offset_ratio = Vector2(0.25, 0.25)
+
+[node name="Enemy" type="TextureRect" parent="VBoxContainer" unique_id=810806101]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("1_k54ds")
+stretch_mode = 3
+
+[node name="ProgressBar" type="ProgressBar" parent="VBoxContainer" unique_id=1215579734]
+layout_mode = 2

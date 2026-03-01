@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="SkillResource" format=3 uid="uid://cyd43xnoo8625"]
+
+[ext_resource type="Script" uid="uid://dcfud1t8m8ivi" path="res://scripts/skillResource.gd" id="1_b6ark"]
+
+[resource]
+script = ExtResource("1_b6ark")
+name = "Slash"
+metadata/_custom_type_script = "uid://dcfud1t8m8ivi"
