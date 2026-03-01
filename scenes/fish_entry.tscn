@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://clell2pn7sjji"]
 
-[ext_resource type="Script" path="res://scripts/fish_entry.gd" id="1_oi6i6"]
+[ext_resource type="Script" uid="uid://bfe6euod0mgwd" path="res://scripts/fish_entry.gd" id="1_oi6i6"]
 [ext_resource type="Texture2D" uid="uid://bftmw2iv0qlxi" path="res://assets/player-fish.png" id="2_oi6i6"]
 
 [node name="FishEntry" type="Node2D" unique_id=566007628]
@@ -11,9 +11,9 @@ texture = ExtResource("2_oi6i6")
 
 [node name="fishName" type="Label" parent="." unique_id=57019060]
 offset_left = -386.0
-offset_top = 386.0
+offset_top = 636.0
 offset_right = 286.0
-offset_bottom = 687.0
+offset_bottom = 937.0
 theme_override_colors/font_color = Color(0.24, 0.13800001, 0.1176, 1)
 theme_override_font_sizes/font_size = 220
 text = "name"
@@ -21,9 +21,9 @@ horizontal_alignment = 1
 
 [node name="fishDescription" type="Label" parent="." unique_id=1039119175]
 offset_left = -1758.0
-offset_top = 738.0
+offset_top = 988.0
 offset_right = 1771.0
-offset_bottom = 1325.0
+offset_bottom = 1575.0
 theme_override_colors/font_color = Color(0.36951095, 0.22441581, 0.19534397, 1)
 theme_override_font_sizes/font_size = 150
 text = "description"

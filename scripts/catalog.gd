@@ -1,45 +1,46 @@
 extends Node2D
 
 @onready var fish_database: Fish_Database = %fishDatabase
-const FISH_SCENE = preload("uid://ptd54wdcx6by")
-const FISH_ENTRY = preload("uid://clell2pn7sjji")
+const FISH_SCENE = preload("res://scenes/fish_scene.tscn")
+const FISH_ENTRY = preload("res://scenes/fish_entry.tscn")
 
-var currentFish : Node2D
+@onready var nextPg: Button = $nextPg
+@onready var backPg: Button = $backPg
+
+
 var fishes : Array
 var currentFishEntry : Node2D
 
 var pageNum : int = 1
 var fishEnd : int = 4
+var indexNum : int = 0
 
 func _ready() -> void:
 	#currentFish = FISH_SCENE.instantiate()
 	fishes = fish_database.fish_array
+	backPg.visible = false
 	
-	create_fish(fishEnd)
+	create_fish()
 	#await get_tree().process_frame
 	draw_fish(pageNum)
+	hide_fish()
 	
 
-func create_fish(breakPoint : int) -> void:
+func create_fish() -> void:
 	
 	var index : int = 0
 	for fish in fishes:
-		
-		
 		currentFishEntry = FISH_ENTRY.instantiate()
 		currentFishEntry.name = str(index)
 		add_child(currentFishEntry)
 		currentFishEntry.newdata = fish
 		currentFishEntry.set_data()
-		#print("made fish " + str(index))
-		#print(currentFishEntry.fish_img)
 		
 	#draw_fish()
 		print(currentFishEntry.fish_img.texture)
 		index += 1
 		
-		if index >= breakPoint:
-			break
+	
 		
 		
 	
@@ -56,37 +57,85 @@ func draw_fish(pageNum : int) -> void:
 	var column : int = 0 # 0-3
 	var row : int = 0 # 0-2
 	
-	
-	print("drawing fish")
-
 		
-		
-		
-	for i in range(fishEnd):
+	for i in range(fishes.size()):
 		var index : String = str(i)
 		var fishChild = get_node(index)
 		fishChild.scale = Vector2(0.1,0.1)
 		fishChild.position = Vector2(x,y)
 		var fishSprite = fishChild.fish_img
 		print(Vector2(column, row))
-		if fishSprite.texture.get_size().y >=2000:
-			if column >= 1:
-				y+=vertSpacing
-				x = xOri
-				row +=1
+		
+		if (row >= 1):
+			x += horiSpacing
+			column += 1
+			row = 0
+			y = yOri
+			if column > 1:
 				column = 0
-			else:
-				x+= horiSpacing
-				column += 1
+				x = xOri
 		else:
-			if row >= 1:
-				x+=horiSpacing
-				y = yOri
-				column +=1
-				row = 0
-			else:
-				y +=vertSpacing
-				row +=1
-		
+			y += vertSpacing
+			row += 1
 			
-		
+			
+
+
+func _on_next_pg_pressed() -> void:
+	pageNum += 1
+	check_buttons()
+
+	
+func check_buttons() -> void:
+	
+	if pageNum == 1:
+		backPg.visible = false
+	elif pageNum == 5:
+		nextPg.visible = false
+	else:
+		nextPg.visible = true
+		backPg.visible = true
+	
+	hide_fish()
+
+func hide_fish() -> void:
+	if pageNum == 1:
+		for i in range(fishes.size()):
+			var currentFish = get_node(str(i))
+			if i > 3:
+				currentFish.visible = false
+			else:
+				currentFish.visible = true
+	elif pageNum == 2:
+		for i in range(fishes.size()):
+			var currentFish = get_node(str(i))
+			if i > 7 or i < 4:
+				currentFish.visible = false
+			else:
+				currentFish.visible = true
+	elif pageNum == 3:
+		for i in range(fishes.size()):
+			var currentFish = get_node(str(i))
+			if i > 11 or i < 8:
+				currentFish.visible = false
+			else:
+				currentFish.visible = true
+	elif pageNum == 4:
+		for i in range(fishes.size()):
+			var currentFish = get_node(str(i))
+			if i > 15 or i < 12:
+				currentFish.visible = false
+			else:
+				currentFish.visible = true
+	elif pageNum == 5:
+		for i in range(fishes.size()):
+			var currentFish = get_node(str(i))
+			if i < 16:
+				currentFish.visible = false
+			else:
+				currentFish.visible = true
+	
+
+func _on_back_pg_pressed() -> void:
+	pageNum -= 1
+	check_buttons()
