@@ -4,6 +4,8 @@ extends Node2D
 @onready var press_space_to_start = $sequenceofevents/TextureRect/PressSpaceToStart
 @onready var test_dialogue_1: Node2D = $TestDialogue1
 
+@onready var canvas_layer: CanvasLayer = $CanvasLayer
+
 
 signal dialogue1_finished()
 #@export var resource: PackedScene
@@ -37,16 +39,17 @@ func _ready():
 
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer  # for fade
-@onready var transition_audio: AudioStreamPlayer = $AudioStreamPlayer
+@onready var transition_audio: AudioStreamPlayer = $TransitionAudio
 
 func _on_midboat_purchased() -> void:
-	# Fade to black
-	animation_player.play("fade_to_black")
-	await animation_player.animation_finished
-	
-	# Play audio
-	transition_audio.play()
-	await transition_audio.finished
+	## Fade to black
+	#canvas_layer.layer = 2
+	#animation_player.play("fade_to_black")
+	#await animation_player.animation_finished
+	#
+	## Play audio
+	#transition_audio.play()
+	#await transition_audio.finished
 	
 	# Change scene
 	get_tree().change_scene_to_file("res://scenes/level_two.tscn")
