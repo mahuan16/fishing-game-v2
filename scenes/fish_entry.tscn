@@ -1,3 +1,10 @@
 [gd_scene format=3 uid="uid://cyueb1cx311la"]
 
+[ext_resource type="Script" uid="uid://c71jiurd2cba6" path="res://scripts/fish_database.gd" id="1_ahoo7"]
+
 [node name="FishEntry" type="Node2D" unique_id=566007628]
+
+[node name="Node" type="Node" parent="." unique_id=49061316]
+script = ExtResource("1_ahoo7")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1403503258]
