@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ew1k35eoeyam"]
 
 [ext_resource type="Script" uid="uid://cln0fmb1rm06e" path="res://scripts/game_manager.gd" id="1_hwd4i"]
-[ext_resource type="PackedScene" uid="uid://bbuw7ou4jn3yj" path="res://scenes/fish_database.tscn" id="2_glms7"]
+[ext_resource type="PackedScene" uid="uid://b2c6wouw0lkx2" path="res://scenes/fish_database.tscn" id="2_glms7"]
 
 [node name="gameManager" type="Node" unique_id=511014651]
 script = ExtResource("1_hwd4i")

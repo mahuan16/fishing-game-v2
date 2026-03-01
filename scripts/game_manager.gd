@@ -6,6 +6,11 @@ const FISH_SCENE = preload("res://scenes/fish_scene.tscn")
 const FISH_GAUGE = preload("res://scenes/fish_gauge.tscn")
 const PLAYER = preload("res://scenes/player.tscn")
 
+# for the score counter 
+@onready var panel = $CanvasLayer/Panel
+@onready var you_caught_x = $CanvasLayer/Panel/YouCaughtX
+
+
 
 var fish : Node
 var player_instance
@@ -13,6 +18,7 @@ var gauge_instance
 
 func _ready() -> void:
 	fish = FISH_SCENE.instantiate()
+	panel.visible = false # hide the panel to show the catches at the start
 
 var scoreNum : int = 0
 @onready var score: Label = $score
@@ -21,8 +27,10 @@ var scoreNum : int = 0
 func add_point() -> void:
 	fish.hit_points -= 1
 	if (fish.hit_points <= 0):
-		score.text = "You caught " + str(fish.display_name)
+		#score.text = "You caught " + str(fish.display_name)
 		end_fishing()
+
+signal fishing_finished 
 
 func start_fishing() -> void:
 	var data : FishData = fish_database.fish_array.pick_random()
@@ -31,6 +39,7 @@ func start_fishing() -> void:
 	print(str(fish.hit_points))
 	print(fish.display_name)
 	create_fish_elements()
+	await fishing_finished 
 	
 
 func create_fish_elements() -> void:
@@ -57,3 +66,13 @@ func create_fish_elements() -> void:
 func end_fishing() -> void:
 	player_instance.queue_free()
 	gauge_instance.queue_free()
+	
+# 	score.text = "You caught " + str(fish.display_name)
+	
+	you_caught_x.text = "Caught " + str(fish.display_name) + "!"
+	panel.visible = true 
+	
+	await get_tree().create_timer(3.0).timeout # disappear after 3 secs
+	panel.visible = false # disappear the panel after 3 secs
+	
+	fishing_finished.emit() # adds in a signal for the level_one script to know when fishing has finished 
