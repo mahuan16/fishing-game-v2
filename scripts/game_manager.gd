@@ -105,7 +105,7 @@ func start_boss_fish(level : int) -> void:
 		fish.position = Vector2(800,350)
 		
 		fish.visible = true 
-		fish.z_index = -1
+		fish.z_index = 0
 		
 		create_fish_elements()
 		player_instance.SPEED = 550

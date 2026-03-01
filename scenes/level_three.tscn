@@ -23,7 +23,7 @@ texture = ExtResource("2_87c5r")
 
 [node name="fisherman" type="Sprite2D" parent="background" unique_id=584456853]
 process_priority = -1
-z_index = 1
+z_index = -1
 position = Vector2(511.00006, 354.00003)
 scale = Vector2(0.1659173, 0.16591726)
 texture = ExtResource("3_crxtl")
