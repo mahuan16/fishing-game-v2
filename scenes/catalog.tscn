@@ -1,8 +1,14 @@
-[gd_scene format=3 uid="uid://cyiete4w257vl"]
+[gd_scene format=3 uid="uid://rq8wlajsd8x3"]
 
 [ext_resource type="Texture2D" uid="uid://bglx8mmhtral3" path="res://assets/open book placeholder.png" id="1_iyahu"]
+[ext_resource type="Script" uid="uid://cc8avjvq8h4lo" path="res://scripts/catalog.gd" id="1_lfbqq"]
+[ext_resource type="PackedScene" uid="uid://bbuw7ou4jn3yj" path="res://scenes/fish_database.tscn" id="2_h73vf"]
 
 [node name="Catalog" type="Node2D" unique_id=193354074]
+script = ExtResource("1_lfbqq")
+
+[node name="fishDatabase" parent="." unique_id=546373192 instance=ExtResource("2_h73vf")]
+unique_name_in_owner = true
 
 [node name="Book" type="Sprite2D" parent="." unique_id=792995224]
 texture = ExtResource("1_iyahu")

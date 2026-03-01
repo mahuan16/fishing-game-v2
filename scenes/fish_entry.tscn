@@ -1,10 +1,23 @@
-[gd_scene format=3 uid="uid://cyueb1cx311la"]
+[gd_scene format=3 uid="uid://clell2pn7sjji"]
 
-[ext_resource type="Script" uid="uid://c71jiurd2cba6" path="res://scripts/fish_database.gd" id="1_ahoo7"]
+[ext_resource type="Script" uid="uid://bfe6euod0mgwd" path="res://scripts/fish_entry.gd" id="1_oi6i6"]
 
 [node name="FishEntry" type="Node2D" unique_id=566007628]
+script = ExtResource("1_oi6i6")
 
-[node name="Node" type="Node" parent="." unique_id=49061316]
-script = ExtResource("1_ahoo7")
+[node name="fishImg" type="Sprite2D" parent="." unique_id=1403503258]
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1403503258]
+[node name="fishName" type="Label" parent="." unique_id=57019060]
+offset_left = -20.0
+offset_top = 12.0
+offset_right = 24.0
+offset_bottom = 35.0
+text = "name"
+
+[node name="fishDescription" type="Label" parent="." unique_id=1039119175]
+offset_left = -23.0
+offset_top = 32.0
+offset_right = 26.0
+offset_bottom = 55.0
+theme_override_font_sizes/font_size = 9
+text = "description"
