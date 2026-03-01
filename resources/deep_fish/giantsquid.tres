@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="FishData" format=3 uid="uid://d2haij30sf7qj"]
+
+[ext_resource type="Script" uid="uid://dphj5gxr8tnga" path="res://scripts/fish_data.gd" id="1_1uvru"]
+[ext_resource type="Texture2D" uid="uid://bgen088tuxsyh" path="res://assets/fish sprites/fish/deep/giantsquid.PNG" id="2_b7g0h"]
+
+[resource]
+script = ExtResource("1_1uvru")
+id = 11
+sprite = ExtResource("2_b7g0h")
+metadata/_custom_type_script = "uid://dphj5gxr8tnga"

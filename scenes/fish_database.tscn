@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bbuw7ou4jn3yj"]
+[gd_scene format=3 uid="uid://b2c6wouw0lkx2"]
 
 [ext_resource type="Script" uid="uid://c71jiurd2cba6" path="res://scripts/fish_database.gd" id="1_n5mrd"]
 [ext_resource type="Script" uid="uid://dphj5gxr8tnga" path="res://scripts/fish_data.gd" id="2_it0j7"]

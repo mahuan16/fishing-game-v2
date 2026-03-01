@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bgpxqnap6schx"
-path="res://.godot/imported/ocean-bg.jpg-530638e5fe5120a0de7f353164b4f814.ctex"
+uid="uid://m42jjvgnbw8w"
+path="res://.godot/imported/needlefish.PNG-d462e1bfb0b905eee5d3da22c871a3d6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ocean-bg.jpg"
-dest_files=["res://.godot/imported/ocean-bg.jpg-530638e5fe5120a0de7f353164b4f814.ctex"]
+source_file="res://assets/fish sprites/fish/middle/needlefish.PNG"
+dest_files=["res://.godot/imported/needlefish.PNG-d462e1bfb0b905eee5d3da22c871a3d6.ctex"]
 
 [params]
 

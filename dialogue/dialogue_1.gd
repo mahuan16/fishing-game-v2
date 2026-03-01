@@ -10,9 +10,10 @@ var resource = preload("res://dialogue/balloon.tscn")
 
 func _unhandled_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_accept"): 
-		var balloon: BaseGameDialogueBalloon = resource.instantiate()
-		get_tree().root.add_child(balloon)
-		balloon.start(load("res://dialogue/dialogue1.dialogue"), "start")
+		if Globals.dialogue_enabled == true: 
+			var balloon: BaseGameDialogueBalloon = resource.instantiate()
+			get_tree().root.add_child(balloon)
+			balloon.start(load("res://dialogue/dialogue1.dialogue"), "start")
 		#DialogueManager.show_example_dialogue_balloon(load("res://dialogue/fisher_text.dialogue"), "start")
 		#return 
 
