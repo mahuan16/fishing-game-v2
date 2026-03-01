@@ -15,18 +15,17 @@ func _ready() -> void:
 	display_name = "empty"
 	description = "emptydesc"
 	price = 0
-	if fish_sprite:
-		print("fish exists")
-	else:
-		print("null fish")
+	#print(fish_sprite)
+	#print(fish_sprite.texture)
 	
 	
 func set_data() -> void:
-	#fish_sprite.texture = data.sprite
+	fish_sprite.texture = data.sprite
 	hit_points = data.health
 	display_name = data.fishName
 	description = data.fishDesc
 	price = data.fishPrice
+	#print("set new fish data")
 
 func get_sprite() -> Sprite2D:
 	return fish_sprite

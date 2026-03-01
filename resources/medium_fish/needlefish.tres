@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="FishData" format=3 uid="uid://nia0mfxck7sf"]
+[gd_resource type="Resource" script_class="FishData" format=3 uid="uid://desqdrlfl5n22"]
 
 [ext_resource type="Script" uid="uid://dphj5gxr8tnga" path="res://scripts/fish_data.gd" id="1_0vmqu"]
 [ext_resource type="Texture2D" uid="uid://m42jjvgnbw8w" path="res://assets/fish sprites/fish/middle/needlefish.PNG" id="2_jdfxt"]

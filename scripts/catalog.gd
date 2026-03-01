@@ -13,7 +13,7 @@ func _ready() -> void:
 	fishes = fish_database.fish_array
 	
 	create_fish()
-	#draw_fish()
+	draw_fish()
 	
 
 func create_fish() -> void:
@@ -26,23 +26,27 @@ func create_fish() -> void:
 		add_child(currentFishEntry)
 		currentFishEntry.newdata = fish
 		currentFishEntry.set_data()
-		print("made fish " + str(index))
+		#print("made fish " + str(index))
+		#print(currentFishEntry.fish_img)
 		index += 1
 		
 	
 func draw_fish() -> void:
 	var x : int = 0
 	var y : int = 0
-	
+	await get_tree().process_frame
+	print("drawing fish")
 	for i in range(fishes.size()):
 		var index : String = str(i)
 		var fishChild = get_node(index)
-		fishChild.update_children()
+		fishChild.scale = Vector2(0.1,0.1)
 		fishChild.position = Vector2(x,y)
 		var fishSprite = fishChild.fish_img
-		if i%2 == 0:
-			x += fishSprite.texture.get_size().x
+		print(fishSprite.texture.get_size())
+		if fishSprite.texture.get_size().y >=2000:
+			x+= 204
+			print("shift x")
 		else:
-			y += fishSprite.texture.get_size().y
-		
+			y +=180
+			
 		

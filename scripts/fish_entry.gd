@@ -14,7 +14,7 @@ var fish : Node2D
 func _ready() -> void:
 	fish = FISH_SCENE.instantiate()
 	add_child(fish)
-	print("entry added to tree")
+	#print("entry added to tree")
 	
 func set_data() -> void:
 	

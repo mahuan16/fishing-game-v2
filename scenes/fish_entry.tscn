@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://clell2pn7sjji"]
 
 [ext_resource type="Script" uid="uid://bfe6euod0mgwd" path="res://scripts/fish_entry.gd" id="1_oi6i6"]
+[ext_resource type="Texture2D" uid="uid://bftmw2iv0qlxi" path="res://assets/player-fish.png" id="2_oi6i6"]
 
 [node name="FishEntry" type="Node2D" unique_id=566007628]
 script = ExtResource("1_oi6i6")
 
 [node name="fishImg" type="Sprite2D" parent="." unique_id=1403503258]
+texture = ExtResource("2_oi6i6")
 
 [node name="fishName" type="Label" parent="." unique_id=57019060]
 offset_left = -20.0
