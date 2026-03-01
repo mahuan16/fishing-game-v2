@@ -33,6 +33,23 @@ func _ready():
 		#print("something")
 	dialogue1_finished.connect(_on_dialogue_finished)
 	print("Dialogue 1 connected")
+	MidboatPurchased.midboat_purchased_changed.connect(_on_midboat_purchased)
+
+
+@onready var animation_player: AnimationPlayer = $AnimationPlayer  # for fade
+@onready var transition_audio: AudioStreamPlayer = $AudioStreamPlayer
+
+func _on_midboat_purchased() -> void:
+	# Fade to black
+	animation_player.play("fade_to_black")
+	await animation_player.animation_finished
+	
+	# Play audio
+	transition_audio.play()
+	await transition_audio.finished
+	
+	# Change scene
+	get_tree().change_scene_to_file("res://level_two.tscn")
 	
 
 func change_bg() -> void:

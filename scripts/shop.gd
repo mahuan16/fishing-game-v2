@@ -24,6 +24,8 @@ var currentCoinCount : int = 0
 var click_cooldown := 0.4
 var last_click_time := -100.0
 
+#signal midboat_purchased 
+#signal deepboat_purchased 
 
 func _ready() -> void:
 	purchased.visible = false
@@ -45,6 +47,7 @@ func _input(event: InputEvent) -> void:
 				soldout.visible = true
 				game_manager.coinCount -= midPrice
 				user_interface.updateCoins(game_manager.coinCount)
+				MidboatPurchased.midboat_purchased = true 
 			else:
 				refuse_purchase(1)
 		elif deep_boat_selected:
@@ -54,6 +57,7 @@ func _input(event: InputEvent) -> void:
 					soldout_deep.visible = true
 					game_manager.coinCount -= deepPrice
 					user_interface.updateCoins(game_manager.coinCount)
+					DeepboatPurchased.deepboat_purchased = true 
 				else:
 					refuse_purchase(1)
 			else:

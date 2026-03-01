@@ -10,8 +10,46 @@
 [ext_resource type="AudioStream" uid="uid://5yi2uwk4wk4a" path="res://sfx/bobber-in.ogg" id="8_astit"]
 [ext_resource type="PackedScene" uid="uid://bqy6uq45cnyxk" path="res://scenes/boss_fish.tscn" id="8_y8ti4"]
 [ext_resource type="AudioStream" uid="uid://cq4ahg5l15cf5" path="res://sfx/reel-in.ogg" id="9_astit"]
+[ext_resource type="AudioStream" uid="uid://ch51dbg7mxw5i" path="res://sfx/boat-moves.wav" id="11_s6ikc"]
 
 [sub_resource type="ImageTexture" id="ImageTexture_4p75b"]
+
+[sub_resource type="Animation" id="Animation_o5wbv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_s6ikc"]
+resource_name = "fade_to_black"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.9666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_036lt"]
+_data = {
+&"RESET": SubResource("Animation_o5wbv"),
+&"fade_to_black": SubResource("Animation_s6ikc")
+}
 
 [node name="Level_One" type="Node2D" unique_id=1741994209]
 script = ExtResource("1_4p75b")
@@ -88,5 +126,24 @@ stream = ExtResource("9_astit")
 
 [node name="BobIn" type="AudioStreamPlayer" parent="." unique_id=382603681]
 stream = ExtResource("8_astit")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1156757846]
+layer = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1941367295]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1273480703]
+libraries/ = SubResource("AnimationLibrary_036lt")
+
+[node name="TransitionAudio" type="AudioStreamPlayer" parent="." unique_id=350371637]
+stream = ExtResource("11_s6ikc")
 
 [connection signal="pressed" from="FishingStartButton" to="FishingStartButton" method="_on_pressed"]
