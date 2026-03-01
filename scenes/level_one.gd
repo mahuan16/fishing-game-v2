@@ -121,6 +121,9 @@ func run_cycle():
 	var bossdialogue_1 = preload("res://dialogue/dialogue_boss1.dialogue")
 	DialogueManager.show_dialogue_balloon(bossdialogue_1, "start")
 	await DialogueManager.dialogue_ended 
+	for child in get_tree().root.get_children(): # get rid of all lingering dialogues if it's still there
+		if child is BaseGameDialogueBalloon:
+			child.queue_free()
 	boss_fight()
 
 @onready var game_manager: Node = %gameManager
