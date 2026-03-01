@@ -3,8 +3,11 @@ Samuel's a widowed fisherman who spends his days fishing and reminiscing about h
 ---
 
 Credits:
+
 This game was made by Anabelle Ahteck, Maria Huan, and Shelley Ma.
+
 Almost all assets were HAND DRAWN (my back hurts...🦐)
+
 Made for Hack Club Campfire NYC
 
 ---
