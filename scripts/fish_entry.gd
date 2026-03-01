@@ -17,12 +17,13 @@ func _ready() -> void:
 	#print("entry added to tree")
 	
 func set_data() -> void:
-	
 	fish.data = newdata
 	fish.set_data()
+	update_children()
+	
 
 func update_children() -> void:
-	fish_img.texture = fish.fish_sprite
+	fish_img.texture = fish.fish_sprite.texture
 	fish_name.text = fish.display_name
 	fish_description.text = fish.description
 
