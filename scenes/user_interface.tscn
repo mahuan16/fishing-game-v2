@@ -13,7 +13,6 @@ script = ExtResource("1_l2bgj")
 [node name="shop" parent="." unique_id=1476982468 instance=ExtResource("2_lmgon")]
 process_mode = 2
 position = Vector2(240, 90)
-scale = Vector2(1.6, 1.6)
 
 [node name="closeShop" type="Button" parent="shop" unique_id=1143829372]
 offset_left = 145.99997
