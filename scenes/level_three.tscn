@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://c58g1u1yw37xp"]
+[gd_scene format=3 uid="uid://k5d5gcr1ke1s"]
 
 [ext_resource type="Script" uid="uid://c0aln5da6gl0p" path="res://scenes/level_three.gd" id="1_87c5r"]
 [ext_resource type="Texture2D" uid="uid://bqb4jn6jrh4wi" path="res://assets/backgrounds/level-three-bg.jpg" id="2_87c5r"]
@@ -16,17 +16,21 @@ script = ExtResource("1_87c5r")
 [node name="background" type="Node" parent="." unique_id=1301565424]
 
 [node name="backgroundImg" type="Sprite2D" parent="background" unique_id=1795248204]
+z_index = -1
 position = Vector2(589.99994, 332.99997)
 scale = Vector2(0.48472223, 0.48472223)
 texture = ExtResource("2_87c5r")
 
 [node name="fisherman" type="Sprite2D" parent="background" unique_id=584456853]
-position = Vector2(581, 336.00003)
+process_priority = -1
+z_index = 1
+position = Vector2(511.00006, 354.00003)
 scale = Vector2(0.1659173, 0.16591726)
 texture = ExtResource("3_crxtl")
 
 [node name="poorBoat" type="Sprite2D" parent="background" unique_id=1858627688]
-position = Vector2(381, 418)
+z_index = -1
+position = Vector2(304, 418)
 scale = Vector2(0.26049802, 0.26049802)
 texture = ExtResource("4_yguh4")
 
@@ -34,6 +38,7 @@ texture = ExtResource("4_yguh4")
 unique_name_in_owner = true
 
 [node name="FishingStartButton" type="Button" parent="." unique_id=1669046095]
+visible = false
 z_index = 5
 offset_left = 701.0
 offset_top = 242.0
@@ -71,6 +76,7 @@ grow_vertical = 0
 text = "Press [Space] to start."
 
 [node name="HorrorTimers" type="Node2D" parent="." unique_id=1695126163]
+visible = false
 
 [node name="Horror2" type="Sprite2D" parent="HorrorTimers" unique_id=1445681983]
 z_index = 1
@@ -87,4 +93,13 @@ texture = ExtResource("7_yguh4")
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1099229233]
 color = Color(0.74818146, 0.72828305, 0.72387403, 1)
 
+[node name="Button" type="Button" parent="." unique_id=1149941156]
+z_index = 2
+offset_left = 96.0
+offset_top = 99.0
+offset_right = 219.0
+offset_bottom = 200.0
+text = "sdd"
+
 [connection signal="pressed" from="FishingStartButton" to="FishingStartButton" method="_on_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

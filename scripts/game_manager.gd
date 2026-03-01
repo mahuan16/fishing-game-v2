@@ -76,14 +76,15 @@ func start_boss_fish(level : int) -> void:
 		gauge_instance.global_position = Vector2(1152*.65,648*.5)
 		
 		create_health_bar()
+		
 	elif level == 2:
 		var data : FishData = fish_database.fish_array[16]
 		fish.data = data
 		fish.set_data()
 		totalHealth = fish.hit_points
 		
-		fish.scale = Vector2(1.1,1.1)
-		fish.position = Vector2(900,350)
+		fish.scale = Vector2(2.2,2.2)
+		fish.position = Vector2(950,350)
 		
 		fish.visible = true 
 		
@@ -93,6 +94,26 @@ func start_boss_fish(level : int) -> void:
 		gauge_instance.global_position = Vector2(1152*.65,648*.5)
 		
 		create_health_bar()
+		progress_bar.global_position = Vector2(820, 50)
+	elif level == 3:
+		var data : FishData = fish_database.fish_array[17]
+		fish.data = data
+		fish.set_data()
+		totalHealth = fish.hit_points
+		
+		fish.scale = Vector2(3.5,3.5)
+		fish.position = Vector2(800,350)
+		
+		fish.visible = true 
+		fish.z_index = -1
+		
+		create_fish_elements()
+		player_instance.SPEED = 550
+		player_instance.global_position = Vector2(1152*.6,648/3)
+		gauge_instance.global_position = Vector2(1152*.58,648*.5)
+		
+		create_health_bar()
+		progress_bar.global_position = Vector2(820, 50)
 		
 	await fishing_finished
 	

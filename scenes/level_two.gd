@@ -27,8 +27,8 @@ func _ready():
 	#horror_instance._ready()
 	game_manager.leastFish = 5
 	game_manager.mostFish = 9
-	game_manager.minLength = 10
-	game_manager.maxLength = 20
+	game_manager.minLength = 20
+	game_manager.maxLength = 40
 	dialogue1_finished.connect(_on_dialogue_finished)
 	print("Dialogue 1 connected")
 	randomize()

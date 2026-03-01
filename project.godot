@@ -11,14 +11,19 @@ config_version=5
 [application]
 
 config/name="fishing_game"
-run/main_scene="uid://b3pfwyhk7wwmo"
+run/main_scene="uid://k5d5gcr1ke1s"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
+
+[audio]
+
+buses/default_bus_layout="uid://bjhbnr8w5lpl8"
 
 [autoload]
 
 DialogueManager="*uid://c3rodes2l3gxb"
 DialogueTrueornot="*uid://dfgb2ycrh12ce"
+BackgroundMusic="*uid://bbf4q8yrn3uvf"
 
 [dialogue_manager]
 

@@ -8,10 +8,12 @@
 [ext_resource type="Texture2D" uid="uid://0soif34efoso" path="res://assets/shop-button.jpg" id="6_sdud1"]
 
 [node name="user_interface" type="Node2D" unique_id=692961381]
+process_priority = 2
 script = ExtResource("1_l2bgj")
 
 [node name="shop" parent="." unique_id=1476982468 instance=ExtResource("2_lmgon")]
 process_mode = 2
+z_index = 2
 position = Vector2(240, 90)
 
 [node name="closeShop" type="Button" parent="shop" unique_id=1143829372]
