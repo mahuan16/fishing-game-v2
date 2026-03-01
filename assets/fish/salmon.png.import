@@ -2,16 +2,12 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://di0u217br6gbv"
-path="res://.godot/imported/salmon.png-a4d9c8da275c96d3f1ebbc65f5ab66f7.ctex"
-metadata={
-"vram_texture": false
-}
+uid="uid://deple5a0s4wt4"
+valid=false
 
 [deps]
 
 source_file="res://assets/fish/salmon.png"
-dest_files=["res://.godot/imported/salmon.png-a4d9c8da275c96d3f1ebbc65f5ab66f7.ctex"]
 
 [params]
 

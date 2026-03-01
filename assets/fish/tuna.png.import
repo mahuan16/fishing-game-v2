@@ -2,16 +2,12 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ncpy3dk7p3rj"
-path="res://.godot/imported/tuna.png-ecbdf4a90234790f25711f89c4050838.ctex"
-metadata={
-"vram_texture": false
-}
+uid="uid://blcww3d67ccsv"
+valid=false
 
 [deps]
 
 source_file="res://assets/fish/tuna.png"
-dest_files=["res://.godot/imported/tuna.png-ecbdf4a90234790f25711f89c4050838.ctex"]
 
 [params]
 

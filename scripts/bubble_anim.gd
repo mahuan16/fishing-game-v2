@@ -3,7 +3,7 @@ extends Node2D
 @onready var timer: Timer = $Timer
 
 
-var possible_times = [7, 8, 9, 10]
+var possible_times = [3, 4, 5, 6]
 
 func _ready(): 
 	timer.wait_time = possible_times.pick_random() # pick a random time for the timer

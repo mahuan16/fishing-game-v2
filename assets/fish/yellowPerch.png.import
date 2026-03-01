@@ -2,16 +2,12 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://da0bqsh5xinnc"
-path="res://.godot/imported/yellowPerch.png-1bf38097d4cc04098f1217f8953dbfbc.ctex"
-metadata={
-"vram_texture": false
-}
+uid="uid://4a4u2yr4q8vm"
+valid=false
 
 [deps]
 
 source_file="res://assets/fish/yellowPerch.png"
-dest_files=["res://.godot/imported/yellowPerch.png-1bf38097d4cc04098f1217f8953dbfbc.ctex"]
 
 [params]
 

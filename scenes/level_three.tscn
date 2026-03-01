@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://c58g1u1yw37xp"]
+
+[ext_resource type="Script" uid="uid://c0aln5da6gl0p" path="res://scenes/level_three.gd" id="1_87c5r"]
+[ext_resource type="Texture2D" uid="uid://bqb4jn6jrh4wi" path="res://assets/backgrounds/level-three-bg.jpg" id="2_87c5r"]
+[ext_resource type="Texture2D" uid="uid://4f6388wcdw22" path="res://assets/fisherman.png" id="3_crxtl"]
+[ext_resource type="Texture2D" uid="uid://br30hg8kgskne" path="res://assets/boat3.PNG" id="4_yguh4"]
+[ext_resource type="PackedScene" uid="uid://ew1k35eoeyam" path="res://scenes/game_manager.tscn" id="5_oo7w2"]
+[ext_resource type="Script" uid="uid://dcoajfqq45tcl" path="res://scripts/button.gd" id="6_l3r28"]
+[ext_resource type="Texture2D" uid="uid://cpje885v8s08u" path="res://assets/backgrounds/level3_horrorbg.png" id="7_yguh4"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_4p75b"]
+
+[node name="Level_Three" type="Node2D" unique_id=1741994209]
+script = ExtResource("1_87c5r")
+
+[node name="background" type="Node" parent="." unique_id=1301565424]
+
+[node name="backgroundImg" type="Sprite2D" parent="background" unique_id=1795248204]
+position = Vector2(589.99994, 332.99997)
+scale = Vector2(0.48472223, 0.48472223)
+texture = ExtResource("2_87c5r")
+
+[node name="fisherman" type="Sprite2D" parent="background" unique_id=584456853]
+position = Vector2(581, 336.00003)
+scale = Vector2(0.1659173, 0.16591726)
+texture = ExtResource("3_crxtl")
+
+[node name="poorBoat" type="Sprite2D" parent="background" unique_id=1858627688]
+position = Vector2(381, 418)
+scale = Vector2(0.26049802, 0.26049802)
+texture = ExtResource("4_yguh4")
+
+[node name="gameManager" parent="." unique_id=511014651 instance=ExtResource("5_oo7w2")]
+unique_name_in_owner = true
+
+[node name="FishingStartButton" type="Button" parent="." unique_id=1669046095]
+z_index = 5
+offset_left = 701.0
+offset_top = 242.0
+offset_right = 851.0
+offset_bottom = 288.0
+text = "Start Fishing"
+script = ExtResource("6_l3r28")
+
+[node name="sequenceofevents" type="Node" parent="." unique_id=1037652598]
+
+[node name="TextureRect" type="TextureRect" parent="sequenceofevents" unique_id=435728065]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 8
+texture = SubResource("ImageTexture_4p75b")
+expand_mode = 2
+
+[node name="PressSpaceToStart" type="Button" parent="sequenceofevents/TextureRect" unique_id=1995364210]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -86.0
+offset_top = -31.0
+offset_right = 89.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Press [Space] to start."
+
+[node name="HorrorTimers" type="Node2D" parent="." unique_id=1695126163]
+
+[node name="Horror2" type="Sprite2D" parent="HorrorTimers" unique_id=1445681983]
+z_index = 1
+position = Vector2(590, 333)
+scale = Vector2(0.485, 0.485)
+texture = ExtResource("7_yguh4")
+
+[node name="Timer" type="Timer" parent="HorrorTimers" unique_id=1815500376]
+
+[node name="TestDialogue1" type="Node2D" parent="." unique_id=1000040629]
+
+[node name="Sprite2D" type="Sprite2D" parent="TestDialogue1" unique_id=1824769116]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1099229233]
+color = Color(0.74818146, 0.72828305, 0.72387403, 1)
+
+[connection signal="pressed" from="FishingStartButton" to="FishingStartButton" method="_on_pressed"]

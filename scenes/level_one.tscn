@@ -6,39 +6,12 @@
 [ext_resource type="Texture2D" uid="uid://4f6388wcdw22" path="res://assets/fisherman.png" id="2_bhu28"]
 [ext_resource type="Script" uid="uid://dcoajfqq45tcl" path="res://scripts/button.gd" id="2_t18mc"]
 [ext_resource type="Texture2D" uid="uid://difeqn4a8esmu" path="res://assets/boat1.PNG" id="3_4p75b"]
+[ext_resource type="Script" uid="uid://bl1g0vpf28iol" path="res://scenes/horror_timer.gd" id="7_4p75b"]
 
 [sub_resource type="ImageTexture" id="ImageTexture_4p75b"]
 
 [node name="Level_One" type="Node2D" unique_id=1741994209]
 script = ExtResource("1_4p75b")
-
-[node name="sequenceofevents" type="Node" parent="." unique_id=1037652598]
-
-[node name="TextureRect" type="TextureRect" parent="sequenceofevents" unique_id=435728065]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 0
-size_flags_vertical = 8
-texture = SubResource("ImageTexture_4p75b")
-expand_mode = 2
-
-[node name="PressSpaceToStart" type="Button" parent="sequenceofevents/TextureRect" unique_id=1995364210]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -86.0
-offset_top = -31.0
-offset_right = 89.0
-grow_horizontal = 2
-grow_vertical = 0
-text = "Press [Space] to start."
 
 [node name="background" type="Node" parent="." unique_id=1301565424]
 
@@ -69,8 +42,39 @@ offset_bottom = 288.0
 text = "Start Fishing"
 script = ExtResource("2_t18mc")
 
+[node name="sequenceofevents" type="Node" parent="." unique_id=1037652598]
+
+[node name="TextureRect" type="TextureRect" parent="sequenceofevents" unique_id=435728065]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 8
+texture = SubResource("ImageTexture_4p75b")
+expand_mode = 2
+
+[node name="PressSpaceToStart" type="Button" parent="sequenceofevents/TextureRect" unique_id=1995364210]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -86.0
+offset_top = -31.0
+offset_right = 89.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Press [Space] to start."
+
 [node name="TestDialogue1" type="Node2D" parent="." unique_id=1000040629]
 
 [node name="Sprite2D" type="Sprite2D" parent="TestDialogue1" unique_id=1824769116]
+
+[node name="Timer" type="Timer" parent="." unique_id=896867822]
+script = ExtResource("7_4p75b")
 
 [connection signal="pressed" from="FishingStartButton" to="FishingStartButton" method="_on_pressed"]
