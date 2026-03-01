@@ -1,0 +1,131 @@
+[gd_scene format=3 uid="uid://cmbuar0l5qbe7"]
+
+[ext_resource type="Script" uid="uid://dfkm87bju6dn0" path="res://scripts/shop.gd" id="1_1l46r"]
+[ext_resource type="Texture2D" uid="uid://c5iw7660y0v7j" path="res://assets/shop-bg.png" id="2_032fp"]
+[ext_resource type="Texture2D" uid="uid://d4efwq2xmthrw" path="res://assets/shop-slot.png" id="3_2fc2m"]
+[ext_resource type="Texture2D" uid="uid://cpba64y87pq3b" path="res://assets/shop-slot-purchased.png" id="4_2fc2m"]
+[ext_resource type="Texture2D" uid="uid://b374s2cvnnmoi" path="res://assets/sold-out.png" id="5_8r1wq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8r1wq"]
+size = Vector2(227, 43)
+
+[node name="shop" type="Node2D" unique_id=1476982468]
+script = ExtResource("1_1l46r")
+
+[node name="shopBg" type="Sprite2D" parent="." unique_id=284680656]
+position = Vector2(234, 169)
+scale = Vector2(0.27294916, 0.27294916)
+texture = ExtResource("2_032fp")
+
+[node name="midBoat" type="Area2D" parent="." unique_id=1064843062]
+position = Vector2(204, 81)
+
+[node name="Sprite2D" type="Sprite2D" parent="midBoat" unique_id=236847666]
+position = Vector2(29, 78)
+scale = Vector2(0.2548828, 0.2548828)
+texture = ExtResource("3_2fc2m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="midBoat" unique_id=1622378010]
+position = Vector2(4, -1)
+shape = SubResource("RectangleShape2D_8r1wq")
+
+[node name="itemName" type="Label" parent="midBoat" unique_id=1719346573]
+offset_left = -97.0
+offset_top = -20.0
+offset_right = 14.0
+offset_bottom = 3.0
+theme_override_font_sizes/font_size = 11
+text = "Mourning Star"
+metadata/_edit_use_anchors_ = true
+
+[node name="itemDesc" type="Label" parent="midBoat" unique_id=2099473745]
+offset_left = -98.0
+offset_top = -5.0
+offset_right = 119.0
+offset_bottom = 18.0
+theme_override_constants/line_spacing = -2
+theme_override_font_sizes/font_size = 7
+text = "A boat upgrade. Allows you to travel into 
+deeper waters."
+metadata/_edit_use_anchors_ = true
+
+[node name="itemPrice" type="Label" parent="midBoat" unique_id=1550765578]
+offset_left = 90.0
+offset_top = -10.0
+offset_right = 130.0
+offset_bottom = 13.0
+theme_override_font_sizes/font_size = 11
+text = "50"
+metadata/_edit_use_anchors_ = true
+
+[node name="purchased" type="Sprite2D" parent="midBoat" unique_id=1390409296]
+position = Vector2(26.999994, 75.99999)
+scale = Vector2(0.25219727, 0.25219727)
+texture = ExtResource("4_2fc2m")
+
+[node name="soldout" type="Sprite2D" parent="midBoat" unique_id=928879355]
+position = Vector2(25, 85)
+scale = Vector2(0.2631836, 0.2631836)
+texture = ExtResource("5_8r1wq")
+
+[node name="deepBoat" type="Area2D" parent="." unique_id=1864212827]
+position = Vector2(204, 150)
+
+[node name="Sprite2D" type="Sprite2D" parent="deepBoat" unique_id=865914198]
+position = Vector2(29, 78)
+scale = Vector2(0.2548828, 0.2548828)
+texture = ExtResource("3_2fc2m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="deepBoat" unique_id=1963643008]
+position = Vector2(4, -1)
+shape = SubResource("RectangleShape2D_8r1wq")
+
+[node name="itemName" type="Label" parent="deepBoat" unique_id=1320332585]
+offset_left = -97.0
+offset_top = -20.0
+offset_right = 14.0
+offset_bottom = 3.0
+theme_override_font_sizes/font_size = 11
+text = "Blackhymn"
+metadata/_edit_use_anchors_ = true
+
+[node name="itemDesc" type="Label" parent="deepBoat" unique_id=235280256]
+offset_left = -98.0
+offset_top = -5.0
+offset_right = 119.0
+offset_bottom = 18.0
+theme_override_constants/line_spacing = -2
+theme_override_font_sizes/font_size = 7
+text = "A boat upgrade. Do you dare to venture further?"
+metadata/_edit_use_anchors_ = true
+
+[node name="itemPrice" type="Label" parent="deepBoat" unique_id=708042521]
+offset_left = 90.0
+offset_top = -10.0
+offset_right = 130.0
+offset_bottom = 13.0
+theme_override_font_sizes/font_size = 11
+text = "100"
+metadata/_edit_use_anchors_ = true
+
+[node name="purchased" type="Sprite2D" parent="deepBoat" unique_id=293192019]
+position = Vector2(26.999994, 75.99999)
+scale = Vector2(0.25219727, 0.25219727)
+texture = ExtResource("4_2fc2m")
+
+[node name="soldout" type="Sprite2D" parent="deepBoat" unique_id=2021816149]
+position = Vector2(25, 85)
+scale = Vector2(0.2631836, 0.2631836)
+texture = ExtResource("5_8r1wq")
+
+[node name="refusal" type="Label" parent="deepBoat" unique_id=1629775597]
+offset_left = -121.0
+offset_top = 39.0
+offset_right = 68.0
+offset_bottom = 80.0
+theme_override_font_sizes/font_size = 9
+
+[connection signal="mouse_entered" from="midBoat" to="." method="_on_mid_boat_mouse_entered"]
+[connection signal="mouse_exited" from="midBoat" to="." method="_on_mid_boat_mouse_exited"]
+[connection signal="mouse_entered" from="deepBoat" to="." method="_on_deep_boat_mouse_entered"]
+[connection signal="mouse_exited" from="deepBoat" to="." method="_on_deep_boat_mouse_exited"]
