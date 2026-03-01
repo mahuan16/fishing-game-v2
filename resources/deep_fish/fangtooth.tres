@@ -6,5 +6,8 @@
 [resource]
 script = ExtResource("1_u6mfx")
 id = 13
+health = 10
 sprite = ExtResource("2_jmb2u")
+fishName = "Fangtooth"
+fishDesc = "Its teeth are so large it has to fit into pouches on either side of its brain."
 metadata/_custom_type_script = "uid://dphj5gxr8tnga"

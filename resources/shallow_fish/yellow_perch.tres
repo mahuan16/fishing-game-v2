@@ -9,5 +9,6 @@ id = 4
 health = 5
 sprite = ExtResource("2_4ytih")
 fishName = "Yellow Perch"
+fishDesc = "Its scales shine a vibrant yellow in the sun."
 fishPrice = 5
 metadata/_custom_type_script = "uid://dphj5gxr8tnga"

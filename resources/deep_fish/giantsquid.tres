@@ -6,5 +6,8 @@
 [resource]
 script = ExtResource("1_1uvru")
 id = 11
+health = 13
 sprite = ExtResource("2_b7g0h")
+fishName = "Giant Squid"
+fishDesc = "These squid are large enough to battle sperm whales in the depths of the ocean."
 metadata/_custom_type_script = "uid://dphj5gxr8tnga"

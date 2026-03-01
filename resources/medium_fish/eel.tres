@@ -8,5 +8,7 @@ script = ExtResource("1_brjh2")
 id = 6
 health = 7
 sprite = ExtResource("2_qfceu")
+fishName = "Eel"
+fishDesc = "Their blood is toxic to humans unless cooked."
 fishPrice = 25
 metadata/_custom_type_script = "uid://dphj5gxr8tnga"

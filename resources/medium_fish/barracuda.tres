@@ -9,5 +9,6 @@ id = 5
 health = 8
 sprite = ExtResource("2_pxe2i")
 fishName = "Barracuda"
+fishDesc = "These \"Tigers of the Sea\" are capable of swimming up to 36 mph."
 fishPrice = 10
 metadata/_custom_type_script = "uid://dphj5gxr8tnga"

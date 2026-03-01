@@ -6,5 +6,8 @@
 [resource]
 script = ExtResource("1_61eqa")
 id = 10
+health = 12
 sprite = ExtResource("2_loupy")
+fishName = "Oarfish"
+fishDesc = "These \"doomsday fish\" were believed to have washed up on shores right before tsunamis and earthquakes."
 metadata/_custom_type_script = "uid://dphj5gxr8tnga"
