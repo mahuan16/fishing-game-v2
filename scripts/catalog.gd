@@ -65,6 +65,7 @@ func draw_fish(pageNum : int) -> void:
 		var fishSprite = fishChild.fish_img
 		if fishChild.newFish:
 			fishChild.modulate = Color(0,0,0,1)
+			fishChild.fish_description.text = "Keep fishing to find me!"
 		else:
 			fishFound += 1
 		
