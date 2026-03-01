@@ -8,3 +8,4 @@ class_name FishData
 @export var fishName : String
 @export var fishDesc : String
 @export var fishPrice : int
+@export var found : bool

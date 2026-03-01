@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="FishData" format=3 uid="uid://cdmgh3anaq5e1"]
+[gd_resource type="Resource" script_class="FishData" format=3 uid="uid://bntlbu8mnd4h8"]
 
 [ext_resource type="Script" uid="uid://dphj5gxr8tnga" path="res://scripts/fish_data.gd" id="1_ycxxh"]
 [ext_resource type="Texture2D" uid="uid://dm6s8n2thad5n" path="res://assets/fish sprites/fish/middle/lanternfish.PNG" id="2_caass"]

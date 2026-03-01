@@ -7,6 +7,7 @@ var hit_points : int
 var display_name : String
 var description : String
 var price : int
+var fishID : int
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -25,8 +26,10 @@ func set_data() -> void:
 	display_name = data.fishName
 	description = data.fishDesc
 	price = data.fishPrice
-	#print("set new fish data")
+	fishID = data.id
+	print("set new fish data")
 
 func get_sprite() -> Sprite2D:
 	return fish_sprite
+
 	

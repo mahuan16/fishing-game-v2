@@ -2,19 +2,24 @@ extends Node
 
 const FISH_SCENE = preload("res://scenes/fish_scene.tscn")
 
+@export var leastFish : int = 0
+@export var mostFish : int = 4
+
 @onready var fish_database: Fish_Database = $fishDatabase
 const FISH_GAUGE = preload("res://scenes/fish_gauge.tscn")
 const PLAYER = preload("res://scenes/player.tscn")
+
+@onready var user_interface: Node2D = $user_interface
 
 # for the score counter 
 @onready var panel = $CanvasLayer/Panel
 @onready var you_caught_x = $CanvasLayer/Panel/YouCaughtX
 
-
-
 var fish : Node
 var player_instance
 var gauge_instance
+
+var coinCount : int = 0
 
 func _ready() -> void:
 	fish = FISH_SCENE.instantiate()
@@ -22,25 +27,22 @@ func _ready() -> void:
 	fish.visible = false 
 	panel.visible = false # hide the panel to show the catches at the start
 
-var scoreNum : int = 0
-@onready var score: Label = $score
-
 # damage fish function
 func add_point() -> void:
 	fish.hit_points -= 1
 	if (fish.hit_points <= 0):
-		#score.text = "You caught " + str(fish.display_name)
+		coinCount += fish.price
+		user_interface.updateCoins(coinCount)
 		end_fishing()
 
 signal fishing_finished 
 
 func start_fishing() -> void:
-	var data : FishData = fish_database.fish_array.pick_random()
+	var randomFish : int = randi_range(leastFish,mostFish)
+	var data : FishData = fish_database.fish_array[randomFish]
 	fish.data = data
 	fish.set_data()
 	fish.visible = false 
-	print(str(fish.hit_points))
-	print(fish.display_name)
 	create_fish_elements()
 	await fishing_finished 
 	
@@ -55,16 +57,12 @@ func create_fish_elements() -> void:
 	player_instance.global_position = Vector2(1152*.8,648/3)
 	
 	# gauge settings + position
-	
 	gauge_instance.min_length = 25
 	gauge_instance.max_length = 50
 	gauge_instance.global_position = Vector2(1152*.77,648*.5)
 	
-	
 	add_child(gauge_instance)
 	add_child(player_instance)
-	
-	print("displays created!")
 	
 func end_fishing() -> void:
 	player_instance.queue_free()
@@ -74,11 +72,15 @@ func end_fishing() -> void:
 	
 	fish.visible = true # show the fish now 
 	fish.global_position = Vector2(130, 50)
+	fish_database.fish_array[fish.fishID].found = true
+	
+	for i in range(fish_database.fish_array.size()):
+		print("endfish f: " + str(fish_database.fish_array[i].found))
 	
 	you_caught_x.text = "Caught " + str(fish.display_name) + "!"
 	panel.visible = true 
 	
-	await get_tree().create_timer(3.0).timeout # disappear after 3 secs
+	await get_tree().create_timer(2.0).timeout # disappear after 3 secs
 	panel.visible = false # disappear the panel after 3 secs
 	fish.visible = false 
 	
