@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bgpxqnap6schx"
-path="res://.godot/imported/ocean-bg.jpg-530638e5fe5120a0de7f353164b4f814.ctex"
+uid="uid://dw1rwnpiq6hgx"
+path="res://.godot/imported/level-one-bg.jpg-732f04cfd67d63e86c8e714e888981d0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ocean-bg.jpg"
-dest_files=["res://.godot/imported/ocean-bg.jpg-530638e5fe5120a0de7f353164b4f814.ctex"]
+source_file="res://assets/backgrounds/level-one-bg.jpg"
+dest_files=["res://.godot/imported/level-one-bg.jpg-732f04cfd67d63e86c8e714e888981d0.ctex"]
 
 [params]
 
