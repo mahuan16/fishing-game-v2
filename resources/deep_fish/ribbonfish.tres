@@ -10,4 +10,5 @@ health = 12
 sprite = ExtResource("2_ffs8j")
 fishName = "Ribbonfish"
 fishDesc = "These fish are often found dead or damaged on the beach after storms."
+fishPrice = 50
 metadata/_custom_type_script = "uid://dphj5gxr8tnga"
