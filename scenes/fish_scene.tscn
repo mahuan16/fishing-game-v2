@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://ptd54wdcx6by"]
 
 [ext_resource type="Script" uid="uid://c5q4bojxpqf7j" path="res://scripts/fish_scene.gd" id="1_if6ev"]
+[ext_resource type="Texture2D" uid="uid://bftmw2iv0qlxi" path="res://assets/player-fish.png" id="2_ph4c7"]
 
-[node name="fish_scene" type="Node" unique_id=261556919]
+[node name="fish_scene" type="Node2D" unique_id=33608113]
 script = ExtResource("1_if6ev")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=974054694]
+[node name="fishSprite" type="Sprite2D" parent="." unique_id=974054694]
+texture = ExtResource("2_ph4c7")

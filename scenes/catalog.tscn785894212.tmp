@@ -1,0 +1,104 @@
+[gd_scene format=3 uid="uid://b47d4776bbg5q"]
+
+[ext_resource type="Texture2D" uid="uid://bglx8mmhtral3" path="res://assets/open book placeholder.png" id="1_iyahu"]
+[ext_resource type="Script" uid="uid://cc8avjvq8h4lo" path="res://scripts/catalog.gd" id="1_lfbqq"]
+[ext_resource type="PackedScene" uid="uid://b2c6wouw0lkx2" path="res://scenes/fish_database.tscn" id="2_h73vf"]
+[ext_resource type="Script" uid="uid://dphj5gxr8tnga" path="res://scripts/fish_data.gd" id="3_2tl3q"]
+[ext_resource type="Resource" uid="uid://tei1rijwl82c" path="res://resources/shallow_fish/tuna.tres" id="4_2d0ml"]
+[ext_resource type="Texture2D" uid="uid://b321wo70bbsxg" path="res://assets/fish sprites/fish/surface/salmon.PNG" id="5_1mhpn"]
+[ext_resource type="Texture2D" uid="uid://bdqewh0r3o8ag" path="res://assets/fish sprites/fish/surface/mahi-mahi.PNG" id="6_4p8mm"]
+[ext_resource type="Resource" uid="uid://dss0wyvjg88rn" path="res://resources/shallow_fish/clownfish.tres" id="7_1hqio"]
+[ext_resource type="Resource" uid="uid://cp3hscrx5akn" path="res://resources/shallow_fish/yellow_perch.tres" id="8_mlltr"]
+[ext_resource type="Resource" uid="uid://bl5imlb1e6fnn" path="res://resources/medium_fish/barracuda.tres" id="9_hcc03"]
+[ext_resource type="Resource" uid="uid://bl058mt7fhgku" path="res://resources/medium_fish/eel.tres" id="10_uxlox"]
+[ext_resource type="Resource" uid="uid://desqdrlfl5n22" path="res://resources/medium_fish/needlefish.tres" id="11_mc3ky"]
+[ext_resource type="Resource" path="res://resources/medium_fish/hatchetfish.tres" id="12_ocbep"]
+[ext_resource type="Resource" path="res://resources/medium_fish/lanternfish.tres" id="13_i4n03"]
+[ext_resource type="Resource" uid="uid://gwfs0jwxm467" path="res://resources/deep_fish/oarfish.tres" id="14_elgeq"]
+[ext_resource type="Texture2D" uid="uid://bgen088tuxsyh" path="res://assets/fish sprites/fish/deep/giantsquid.PNG" id="15_wnfdy"]
+[ext_resource type="Texture2D" uid="uid://bhw003wgsi2jd" path="res://assets/fish sprites/fish/deep/anglerfish.PNG" id="16_5ww6j"]
+[ext_resource type="Texture2D" uid="uid://foh3pmx0tops" path="res://assets/fish sprites/fish/deep/fangtooth.PNG" id="17_rlmlr"]
+[ext_resource type="Resource" uid="uid://ce7n28q74ubb2" path="res://resources/deep_fish/ribbonfish.tres" id="18_7cn5s"]
+[ext_resource type="Texture2D" uid="uid://bcltu656xv0gu" path="res://assets/next-arrow.png" id="20_2d0ml"]
+
+[sub_resource type="Resource" id="Resource_n7vxe"]
+script = ExtResource("3_2tl3q")
+id = 1
+health = 5
+sprite = ExtResource("5_1mhpn")
+fishName = "Salmon"
+fishDesc = "They are born in freshwater and migrate to the oceans, just to return back home once more."
+fishPrice = 5
+metadata/_custom_type_script = "uid://dphj5gxr8tnga"
+
+[sub_resource type="Resource" id="Resource_kofim"]
+script = ExtResource("3_2tl3q")
+id = 2
+health = 7
+sprite = ExtResource("6_4p8mm")
+fishName = "Mahi-mahi"
+fishDesc = "It shines a vibrant neon blue, green, and gold, but lose this vibrancy when they become stressed."
+fishPrice = 6
+metadata/_custom_type_script = "uid://dphj5gxr8tnga"
+
+[sub_resource type="Resource" id="Resource_b4cbk"]
+script = ExtResource("3_2tl3q")
+id = 11
+health = 13
+sprite = ExtResource("15_wnfdy")
+fishName = "Giant Squid"
+fishDesc = "These squid are large enough to battle sperm whales in the depths of the ocean."
+fishPrice = 40
+metadata/_custom_type_script = "uid://dphj5gxr8tnga"
+
+[sub_resource type="Resource" id="Resource_8tdks"]
+script = ExtResource("3_2tl3q")
+id = 12
+health = 14
+sprite = ExtResource("16_5ww6j")
+fishName = "Anglerfish"
+fishDesc = "Males can bite females and release enzymes to fuse into her skin."
+fishPrice = 35
+metadata/_custom_type_script = "uid://dphj5gxr8tnga"
+
+[sub_resource type="Resource" id="Resource_na4y8"]
+script = ExtResource("3_2tl3q")
+id = 13
+health = 10
+sprite = ExtResource("17_rlmlr")
+fishName = "Fangtooth"
+fishDesc = "Its teeth are so large it has to fit into pouches on either side of its brain."
+fishPrice = 48
+metadata/_custom_type_script = "uid://dphj5gxr8tnga"
+
+[node name="Catalog" type="Node2D" unique_id=193354074]
+script = ExtResource("1_lfbqq")
+
+[node name="fishDatabase" parent="." unique_id=546373192 instance=ExtResource("2_h73vf")]
+unique_name_in_owner = true
+fish_array = Array[ExtResource("3_2tl3q")]([ExtResource("4_2d0ml"), SubResource("Resource_n7vxe"), SubResource("Resource_kofim"), ExtResource("7_1hqio"), ExtResource("8_mlltr"), ExtResource("9_hcc03"), ExtResource("10_uxlox"), ExtResource("11_mc3ky"), ExtResource("12_ocbep"), ExtResource("13_i4n03"), ExtResource("14_elgeq"), SubResource("Resource_b4cbk"), SubResource("Resource_8tdks"), SubResource("Resource_na4y8"), ExtResource("18_7cn5s")])
+
+[node name="Book" type="Sprite2D" parent="." unique_id=792995224]
+position = Vector2(580, 325)
+scale = Vector2(2.102811, 1.9976903)
+texture = ExtResource("1_iyahu")
+
+[node name="nextPg" type="Button" parent="." unique_id=1099013843]
+offset_left = 965.0
+offset_top = 271.0
+offset_right = 1073.0
+offset_bottom = 365.0
+icon = ExtResource("20_2d0ml")
+flat = true
+
+[node name="backPg" type="Button" parent="." unique_id=2108687051]
+offset_left = 176.0
+offset_top = 365.0
+offset_right = 284.0
+offset_bottom = 459.0
+rotation = 3.1415927
+icon = ExtResource("20_2d0ml")
+flat = true
+
+[connection signal="pressed" from="nextPg" to="." method="_on_next_pg_pressed"]
+[connection signal="pressed" from="backPg" to="." method="_on_back_pg_pressed"]
