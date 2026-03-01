@@ -21,3 +21,7 @@ Each fish is worth a specific amount of money. Gain enough money to buy boat upg
 
 Good Luck...
 
+---
+
+This game has one ending (for now...)
+
