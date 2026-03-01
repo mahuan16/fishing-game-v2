@@ -14,6 +14,7 @@ func _ready() -> void:
 	display_name = "empty"
 	description = "emptydesc"
 	price = 0
+	fish_sprite.scale = Vector2(0.1, 0.1) # Halves size
 	#print(fish_sprite)
 	#print(fish_sprite.texture)
 	

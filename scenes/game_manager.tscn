@@ -2,16 +2,43 @@
 
 [ext_resource type="Script" uid="uid://cln0fmb1rm06e" path="res://scripts/game_manager.gd" id="1_hwd4i"]
 [ext_resource type="PackedScene" uid="uid://b2c6wouw0lkx2" path="res://scenes/fish_database.tscn" id="2_glms7"]
+[ext_resource type="Texture2D" uid="uid://c84a35ifrn2kj" path="res://assets/bluerectangle.png" id="2_k4jhu"]
 
 [node name="gameManager" type="Node" unique_id=511014651]
 script = ExtResource("1_hwd4i")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1908280191]
+
+[node name="Panel" type="Panel" parent="CanvasLayer" unique_id=1921469209]
+offset_left = 413.0
+offset_top = 538.0
+offset_right = 413.0
+offset_bottom = 538.0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Panel" unique_id=389213052]
+layout_mode = 0
+offset_left = -120.0
+offset_top = -62.0
+offset_right = 480.0
+offset_bottom = 244.0
+scale = Vector2(1, 0.56)
+texture = ExtResource("2_k4jhu")
+
+[node name="YouCaughtX" type="Label" parent="CanvasLayer/Panel" unique_id=898510192]
+layout_mode = 0
+offset_left = -56.0
+offset_top = -37.0
+offset_right = 139.0001
+offset_bottom = 12.5833435
+scale = Vector2(2.3999987, 2.3999987)
+text = "You caught!"
 
 [node name="fishDatabase" parent="." unique_id=546373192 instance=ExtResource("2_glms7")]
 unique_name_in_owner = true
 
 [node name="score" type="Label" parent="." unique_id=2001807506]
-offset_left = 12.0
-offset_top = 6.0
-offset_right = 164.0
-offset_bottom = 57.0
+offset_left = 18.0
+offset_top = 14.0
+offset_right = 170.0
+offset_bottom = 65.0
 text = "Score: 0"
