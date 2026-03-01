@@ -29,7 +29,7 @@ func _ready() -> void:
 	hide_fish()
 	
 	display_found()
-	print("new cat")
+	#print("new cat")
 
 func create_fish() -> void:
 	#fishes = fish_database.fish_array
@@ -43,7 +43,7 @@ func create_fish() -> void:
 		
 		index += 1
 	
-	print("made catalog")
+	
 		
 	
 func draw_fish(pageNum : int) -> void:
@@ -66,9 +66,10 @@ func draw_fish(pageNum : int) -> void:
 		fishChild.scale = Vector2(0.1,0.1)
 		fishChild.position = Vector2(x,y)
 		#var fishSprite = fishChild.fish_img
-		print(fishes[i].found)
+		#print(fishes[i].found)
 		if not fishes[i].found:
 			fishChild.modulate = Color(0,0,0,1)
+			fishChild.fish_name.text = "???"
 			fishChild.fish_description.text = "Keep fishing to find me!"
 		else:
 			fishFound += 1

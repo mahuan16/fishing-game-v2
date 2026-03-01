@@ -74,9 +74,6 @@ func end_fishing() -> void:
 	fish.global_position = Vector2(130, 50)
 	fish_database.fish_array[fish.fishID].found = true
 	
-	for i in range(fish_database.fish_array.size()):
-		print("endfish f: " + str(fish_database.fish_array[i].found))
-	
 	you_caught_x.text = "Caught " + str(fish.display_name) + "!"
 	panel.visible = true 
 	
