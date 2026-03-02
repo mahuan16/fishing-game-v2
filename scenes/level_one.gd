@@ -85,6 +85,7 @@ func run_cycle():
 		
 	print("3 cycles completed")
 	boss_fight()
+	
 
 @onready var game_manager: Node = %gameManager
 

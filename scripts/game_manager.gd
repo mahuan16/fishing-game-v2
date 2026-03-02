@@ -43,6 +43,8 @@ func add_point() -> void:
 		end_fishing()
 		if progress_bar:
 			destroy_health_bar()
+			await get_tree().create_timer(1.5).timeout 
+			get_tree().change_scene_to_file("res://scenes/level_two.tscn")
 	if progress_bar:
 		update_health_bar()
 	

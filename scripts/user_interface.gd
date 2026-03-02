@@ -5,6 +5,7 @@ const CATALOG = preload("res://scenes/catalog.tscn")
 
 @onready var shop: Node2D = $shop
 
+
 func _ready() -> void:
 	shop.visible = false
 
