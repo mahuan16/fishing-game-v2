@@ -37,23 +37,29 @@ func _ready():
 	print("Dialogue 1 connected")
 	MidboatPurchased.midboat_purchased_changed.connect(_on_midboat_purchased)
 
-
 @onready var animation_player: AnimationPlayer = $AnimationPlayer  # for fade
 @onready var transition_audio: AudioStreamPlayer = $TransitionAudio
 
 func _on_midboat_purchased() -> void:
-	## Fade to black
-	#canvas_layer.layer = 2
-	#animation_player.play("fade_to_black")
+	print("_on_midboat_purchased called")
+	canvas_layer.layer = 2
+	animation_player.play("fade_to_black")
+	print("Playing fade_to_black, waiting for finish...")
 	#await animation_player.animation_finished
-	#
-	## Play audio
-	#transition_audio.play()
+	print("Animation finished, playing audio...")
+	transition_audio.play()
 	#await transition_audio.finished
-	
-	# Change scene
+	print("Audio finished, changing scene...")
 	get_tree().change_scene_to_file("res://scenes/level_two.tscn")
 	
+"""
+		var bubbles_appear = bubbles.instantiate()
+		get_tree().root.add_child(bubbles_appear)
+		bubbles_appear.global_position = Vector2(50, 130)
+		
+		var anim_player = bubbles_appear.get_node("AnimationPlayer")
+		await anim_player.animation_finished
+"""
 
 func change_bg() -> void:
 	var index := 0
@@ -70,6 +76,7 @@ var resource = preload("res://dialogue/balloon.tscn")
 # below is dialogue manager stuff 
 func _unhandled_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_accept"): # upon pressing space, dialogue pops up 
+		print("Click detected: level one unhandled input")
 		if Globals.dialogue_enabled == true: 
 			Globals.dialogue_enabled = false # prevent re-triggering of the dialogues 
 			press_space_to_start.visible = false

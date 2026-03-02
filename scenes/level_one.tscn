@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://4f6388wcdw22" path="res://assets/fisherman.png" id="2_bhu28"]
 [ext_resource type="Script" uid="uid://dcoajfqq45tcl" path="res://scripts/button.gd" id="2_t18mc"]
 [ext_resource type="Texture2D" uid="uid://difeqn4a8esmu" path="res://assets/boat1.PNG" id="3_4p75b"]
-[ext_resource type="Script" path="res://scenes/horror_timer.gd" id="7_4p75b"]
+[ext_resource type="Script" uid="uid://bl1g0vpf28iol" path="res://scenes/horror_timer.gd" id="7_4p75b"]
 [ext_resource type="AudioStream" uid="uid://5yi2uwk4wk4a" path="res://sfx/bobber-in.ogg" id="8_astit"]
 [ext_resource type="PackedScene" uid="uid://bqy6uq45cnyxk" path="res://scenes/boss_fish.tscn" id="8_y8ti4"]
 [ext_resource type="AudioStream" uid="uid://cq4ahg5l15cf5" path="res://sfx/reel-in.ogg" id="9_astit"]
@@ -15,7 +15,6 @@
 [sub_resource type="ImageTexture" id="ImageTexture_4p75b"]
 
 [sub_resource type="Animation" id="Animation_o5wbv"]
-length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -23,10 +22,10 @@ tracks/0/path = NodePath("CanvasLayer/ColorRect:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.8666667),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0)]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_s6ikc"]
@@ -142,6 +141,7 @@ color = Color(0, 0, 0, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1273480703]
 libraries/ = SubResource("AnimationLibrary_036lt")
+movie_quit_on_finish = true
 
 [node name="TransitionAudio" type="AudioStreamPlayer" parent="." unique_id=350371637]
 stream = ExtResource("11_s6ikc")

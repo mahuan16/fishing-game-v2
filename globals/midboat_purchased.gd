@@ -7,3 +7,5 @@ signal midboat_purchased_changed
 		midboat_purchased = value
 		if value:
 			midboat_purchased_changed.emit()
+			print("Midboat purchased and set to true")
+			midboat_purchased = true 
