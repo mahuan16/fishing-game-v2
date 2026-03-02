@@ -3,7 +3,7 @@ extends Node
 const FISH_SCENE = preload("res://scenes/fish_scene.tscn")
 
 @export var leastFish : int = 0
-@export var mostFish : int = 4
+@export var mostFish : int = 17
 
 @onready var fish_database: Fish_Database = $fishDatabase
 const FISH_GAUGE = preload("res://scenes/fish_gauge.tscn")
@@ -18,6 +18,9 @@ const PLAYER = preload("res://scenes/player.tscn")
 var fish : Node2D
 var player_instance
 var gauge_instance
+
+
+
 
 @export var minLength = 25
 @export var maxLength = 50

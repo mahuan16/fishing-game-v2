@@ -120,15 +120,29 @@ func run_cycle():
 		await game_manager.start_fishing() 
 		
 	print("3 cycles completed")
+	while true:
+		var bubbles_appear = bubbles.instantiate()
+		get_tree().root.add_child(bubbles_appear)
+		bubbles_appear.global_position = Vector2(50, 130)
+		
+		var anim_player = bubbles_appear.get_node("AnimationPlayer")
+		await anim_player.animation_finished
+		
+		# third step is to play the fishing scripts 
+		bubbles_appear.queue_free() # get rid of bubble instances before the next round 
+		reel_in.play()
+		await game_manager.start_fishing() 
+		
 	#balloon.start(load("res://dialogue/dialogue_boss1.dialogue"), "start")
-	var bossdialogue_1 = preload("res://dialogue/dialogue_boss1.dialogue")
-	DialogueManager.show_dialogue_balloon(bossdialogue_1, "start")
-	await DialogueManager.dialogue_ended 
-	for child in get_tree().root.get_children(): # get rid of all lingering dialogues if it's still there
-		if child is BaseGameDialogueBalloon:
-			child.queue_free()
-	boss_fight()
-	print(get_tree().root.get_children())
+	#var bossdialogue_1 = preload("res://dialogue/dialogue_boss1.dialogue")
+	#DialogueManager.show_dialogue_balloon(bossdialogue_1, "start")
+	#await DialogueManager.dialogue_ended 
+	#for child in get_tree().root.get_children(): # get rid of all lingering dialogues if it's still there
+		#if child is BaseGameDialogueBalloon:
+			#child.queue_free()
+	#boss_fight()
+	#print(get_tree().root.get_children())
+	
 
 @onready var game_manager: Node = %gameManager
 
